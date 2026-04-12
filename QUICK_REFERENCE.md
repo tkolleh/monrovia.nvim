@@ -204,10 +204,10 @@ M.check = function()
   vim.health.start("nightfox.nvim")
   
   -- Check Neovim version
-  if vim.fn.has("nvim-0.10") == 0 then
-    vim.health.error("Requires Neovim 0.10+")
+  if vim.fn.has("nvim-0.11") == 0 then
+    vim.health.error("Requires Neovim 0.11+")
   else
-    vim.health.ok("Using Neovim 0.10+")
+    vim.health.ok("Using Neovim 0.11+")
   end
   
   -- Check vim.uv availability
@@ -249,7 +249,7 @@ TO:
 ```markdown
 ## ⚠️ Breaking Changes in v4.0.0
 
-- **Dropped Vim 9 support**: This plugin now requires Neovim 0.10+
+- **Dropped Vim 9 support**: This plugin now requires Neovim 0.11+
 - **API Modernization**: Uses `vim.uv`, new highlight APIs, and Lua `load`
 - **Cache Regeneration**: Run `:NightfoxCompile` after upgrading
 ```
@@ -286,7 +286,7 @@ make test
 
 ### Issue: `vim.uv` not found
 **Cause**: Running on Neovim < 0.10  
-**Solution**: Update to Neovim 0.10+
+**Solution**: Update to Neovim 0.11+
 
 ### Issue: Tests fail after changes
 **Cause**: Compiled cache incompatible  
@@ -308,9 +308,9 @@ stylua lua/ test -f ./stylua.toml
 ## Commit Message Template
 
 ```
-feat!: modernize for neovim 0.10+
+feat!: modernize for neovim 0.11+
 
-BREAKING CHANGE: Drop Vim 9 support, require Neovim 0.10+
+BREAKING CHANGE: Drop Vim 9 support, require Neovim 0.11+
 
 Changes:
 - Remove lua/nightfox/lib/vim/ compatibility layer

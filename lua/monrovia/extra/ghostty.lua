@@ -4,7 +4,7 @@ local M = {}
 
 function M.generate(spec, _)
   local content = [[
-# Nightfox colors for Ghostty
+# Monrovia colors for Ghostty
 ## name: ${palette.meta.name}
 ## upstream: ${palette.meta.url}
 

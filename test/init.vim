@@ -3,8 +3,8 @@ try
 	Plug expand('<sfile>')[0:-15] 
 	call plug#end()
 
-	lua require("nightfox").setup {}
-	colorscheme nightfox
+	lua require("monrovia").setup {}
+	colorscheme monrovia
 catch
 	echo v:exception
 	1cq

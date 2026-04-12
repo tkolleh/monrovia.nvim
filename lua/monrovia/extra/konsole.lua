@@ -129,7 +129,7 @@ Color=${fg0}
 [General]
 Blur=false
 ColorRandomization=false
-Description=Nightfox
+Description=Monrovia
 Opacity=1
 ]]
 

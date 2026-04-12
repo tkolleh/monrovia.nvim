@@ -190,7 +190,7 @@ You can change the color `palette` and the highlight `group` of monrovia. Here i
 
 ```lua
 -- Palettes are the base color defines of a colorscheme.
--- You can override these palettes for each colorscheme defined by nightfox.
+-- You can override these palettes for each colorscheme defined by monrovia.
 local palettes = {
   -- Everything defined under `all` will be applied to each style.
   all = {
@@ -296,9 +296,9 @@ for how vim looks (background, cursorline, tabline, etc...). To get the highligh
 
 To get more information check out [Usage](./usage.md#configuration) or the help file `:help monrovia` for more detailed information.
 
-[editor.lua]: https://github.com/tkolleh/monrovia.nvim/blob/main/lua/nightfox/group/editor.lua
-[syntax.lua]: https://github.com/tkolleh/monrovia.nvim/blob/main/lua/nightfox/group/syntax.lua
-[treesitter.lua]: https://github.com/tkolleh/monrovia.nvim/blob/main/lua/nightfox/group/modules/treesitter.lua
+[editor.lua]: https://github.com/tkolleh/monrovia.nvim/blob/main/lua/monrovia/group/editor.lua
+[syntax.lua]: https://github.com/tkolleh/monrovia.nvim/blob/main/lua/monrovia/group/syntax.lua
+[treesitter.lua]: https://github.com/tkolleh/monrovia.nvim/blob/main/lua/monrovia/group/modules/treesitter.lua
 
 ### Custom template values
 

@@ -14,7 +14,7 @@ function M.generate(spec, _)
 
   local content = [[
 #!/usr/bin/env bash
-# Nightfox colors for Tmux
+# Monrovia colors for Tmux
 # Style: ${meta.name}
 # Upstream: ${meta.url}
 set -g mode-style "fg=${bg},bg=${fg}"

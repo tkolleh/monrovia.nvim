@@ -1,51 +1,25 @@
 # Changelog
 
-## [4.0.0] - TBD
+**Note**: This changelog includes history from [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) up to v3.10.0. Entries from v4.0.0 onward are specific to monrovia.nvim.
 
-### ⚠️ Breaking Changes
+## [4.0.0] - 2025-04-12
 
-- **Dropped Vim 9 support**: This plugin now requires Neovim 0.10+
-- **API Modernization**: Migrated to modern Neovim APIs
-- **Cache Regeneration**: Users must run `:NightfoxCompile` after upgrading
+### ⚠️ Hardfork Release
 
-### Changed
+This release marks the hardfork from nightfox.nvim to monrovia.nvim.
 
-- **API**: `vim.loop` → `vim.uv` (Neovim 0.10+)
-- **API**: `loadstring()` → `load()` (Lua 5.2+ standard)
-- **API**: `nvim_get_hl_by_name()` → `nvim_get_hl()` (Neovim 0.9+)
-- **API**: `vim.cmd` autocmds → `nvim_create_autocmd()` (Neovim 0.7+)
+#### Breaking Changes
 
-### Removed
+- **Neovim 0.10+ required**: Dropped support for Vim and Neovim < 0.10
+- **Renamed to monrovia.nvim**: New plugin name (hardfork of nightfox.nvim)
+- **Theme names updated**: `nightfox` → `monrovia_night`, `dayfox` → `monrovia_day`, etc.
+- **API Modernization**: Uses `vim.uv`, `nvim_get_hl`, and Lua `load`
+- **Run `:MonroviaCompile`**: Cache regeneration required after upgrade
 
-- **Deleted**: `lua/nightfox/lib/vim/` directory (Vim 9 compatibility layer)
-- **Deleted**: `is_vim` and `is_nvim` runtime checks
-- **Deleted**: `vim_cache_home()` function (unused in Neovim)
+#### Acknowledgments
 
-### Added
-
-- **Health check**: New `:checkhealth nightfox` command
-- **Documentation**: Clear Neovim 0.10+ requirement in README
-
-### Migration Guide
-
-**For Neovim 0.10+ users:**
-1. Update your plugin manager to pull v4.0.0
-2. Run `:NightfoxCompile` to regenerate cache
-3. Done!
-
-**For Neovim 0.9 or earlier users:**
-- Pin to v3.x in your plugin manager:
-  ```lua
-  -- lazy.nvim example
-  { "EdenEast/nightfox.nvim", tag = "v3.10.0" }
-  ```
-
-**For Vim 9 users:**
-- This fork no longer supports Vim 9
-- Use the original EdenEast/nightfox.nvim repo instead
-
----
-
+- Original work by [EdenEast](https://github.com/EdenEast/nightfox.nvim)
+- Licensed under MIT License
 
 ## [3.10.0](https://github.com/EdenEast/nightfox.nvim/compare/v3.9.3...v3.10.0) (2024-07-22)
 

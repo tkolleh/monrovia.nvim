@@ -4,3 +4,6 @@ test/plenary
 panvimdoc
 .direnv
 .repro
+IMPLEMENTATION_PLAN.md
+QUICK_REFERENCE.md
+AGENTS.md

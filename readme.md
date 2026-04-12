@@ -1,3 +1,17 @@
+# ⚠️ Repository Archived
+
+This repository has been archived. The project has been hardforked to [monrovia.nvim](https://github.com/tkolleh/monrovia.nvim).
+
+## What's Different?
+
+| Feature | nightfox.nvim (this repo) | monrovia.nvim (new) |
+|---------|---------------------------|---------------------|
+| Vim Support | ✅ Vim 9 + Neovim 0.8+ | ❌ Neovim 0.10+ only |
+| Theme Names | nightfox, dayfox, duskfox, etc. | monrovia_night, monrovia_day, etc. |
+| APIs | Legacy (vim.loop, loadstring) | Modern (vim.uv, load) |
+| Maintenance | Archived | Active |
+
+Please use [monrovia.nvim](https://github.com/tkolleh/monrovia.nvim) for new features and updates.
 <p align="center">
   <img width="128" height="128" src="https://user-images.githubusercontent.com/2746374/179428323-6d6b5e7f-6459-47b3-9e03-fea7553d85af.svg" />
 </p>

@@ -1,8 +1,8 @@
-# Neovim v0.10+ Modernization Project - Agent Context
+# Neovim v0.11+ Modernization Project - Agent Context
 
 > **Worktree**: `nvim-modernization`  
 > **Branch**: `nvim-modernization`  
-> **Goal**: Modernize nightfox.nvim for Neovim v0.10+ only, removing Vim 9 compatibility
+> **Goal**: Modernize nightfox.nvim for Neovim v0.11+ only, removing Vim 9 compatibility
 
 ---
 
@@ -10,7 +10,7 @@
 
 This is a fork of [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim), a highly customizable colorscheme for Neovim. The original project supports both Vim 9 + Lua 5.1 and Neovim 0.8+. 
 
-**This worktree implements a clean break**: Neovim 0.10+ only, removing all Vim compatibility code and modernizing APIs.
+**This worktree implements a clean break**: Neovim 0.11+ only, removing all Vim compatibility code and modernizing APIs.
 
 ---
 
@@ -71,7 +71,7 @@ lua/nightfox/
 11. **Update** `lua/nightfox/lib/deprecation.lua` - vim.cmd→nvim_create_autocmd
 
 ### Phase 3: Documentation & Validation (MEDIUM)
-12. **Update** `readme.md` - Change requirements to Neovim 0.10+
+12. **Update** `readme.md` - Change requirements to Neovim 0.11+
 13. **Create** `lua/nightfox/health.lua` - Add health check module
 14. **Run** `make test` - Validate all tests pass
 15. **Run** `make check` - Validate stylua formatting
@@ -235,15 +235,15 @@ M.check = function()
   vim.health.start("nightfox.nvim")
   
   -- Check Neovim version
-  if vim.fn.has("nvim-0.10") == 0 then
-    vim.health.error("Requires Neovim 0.10+")
+  if vim.fn.has("nvim-0.11") == 0 then
+    vim.health.error("Requires Neovim 0.11+")
   else
-    vim.health.ok("Using Neovim 0.10+")
+    vim.health.ok("Using Neovim 0.11+")
   end
   
   -- Check vim.uv availability
   if vim.uv then
-    vim.health.ok("vim.uv available (Neovim 0.10+)")
+    vim.health.ok("vim.uv available (Neovim 0.11+)")
   else
     vim.health.warn("vim.uv not available, using vim.loop fallback")
   end
@@ -283,7 +283,7 @@ nvim --clean -u .github/minimal_init.lua
 
 1. **Compiled Cache**: The compiler generates bytecode cache files. After these changes, users will need to run `:NightfoxCompile` to regenerate cache.
 
-2. **Breaking Change**: This is a breaking change requiring Neovim 0.10+. Update readme.md requirements section.
+2. **Breaking Change**: This is a breaking change requiring Neovim 0.11+. Update readme.md requirements section.
 
 3. **Vim.fn calls**: We're keeping `vim.fn.has()` for version checks and `vim.fn.stdpath()` - these are not deprecated.
 

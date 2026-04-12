@@ -1,14 +1,14 @@
-# Nightfox.nvim Neovim v0.10+ Modernization Plan
+# Nightfox.nvim Neovim v0.11+ Modernization Plan
 
 **Version**: 4.0.0 (Breaking Release)  
-**Target**: Neovim 0.10+ only  
+**Target**: Neovim 0.11+ only  
 **Status**: Implementation Ready
 
 ---
 
 ## Executive Summary
 
-This plan modernizes nightfox.nvim to be a pure Neovim 0.10+ plugin, removing all Vim 9 + Lua 5.1 compatibility code. The changes reduce codebase complexity by ~60 lines and leverage modern Neovim APIs.
+This plan modernizes nightfox.nvim to be a pure Neovim 0.11+ plugin, removing all Vim 9 + Lua 5.1 compatibility code. The changes reduce codebase complexity by ~60 lines and leverage modern Neovim APIs.
 
 ### Key Changes
 - **Removed**: Vim 9 compatibility layer (`lua/nightfox/lib/vim/`)
@@ -32,7 +32,7 @@ rm -rf lua/nightfox/lib/vim/
 - `lua/nightfox/lib/vim/compiler.lua` - Vim 9 + Lua 5.1 bytecode compiler
 - `lua/nightfox/lib/vim/init.lua` - Vim-specific utilities
 
-**Rationale**: These files are only used when `vim.fn.has("nvim") ~= 1`. Since we're requiring Neovim 0.10+, they're dead code.
+**Rationale**: These files are only used when `vim.fn.has("nvim") ~= 1`. Since we're requiring Neovim 0.11+, they're dead code.
 
 ---
 
@@ -193,7 +193,7 @@ if not vim.uv.fs_stat(lazypath) then
 
 **Rationale**: `vim.loop` is deprecated in Neovim 0.10 in favor of `vim.uv` (direct libuv bindings).
 
-**Note**: `vim.uv` was added in Neovim 0.10. This change enforces our 0.10+ requirement.
+**Note**: `vim.uv` was added in Neovim 0.10. This change enforces our 0.11+ requirement.
 
 ---
 
@@ -229,10 +229,10 @@ M.check = function()
   vim.health.start("nightfox.nvim")
   
   -- Check Neovim version
-  if vim.fn.has("nvim-0.10") == 0 then
-    vim.health.error("Requires Neovim 0.10+")
+  if vim.fn.has("nvim-0.11") == 0 then
+    vim.health.error("Requires Neovim 0.11+")
   else
-    vim.health.ok("Using Neovim 0.10+")
+    vim.health.ok("Using Neovim 0.11+")
   end
   
   -- Check vim.uv availability
@@ -283,7 +283,7 @@ return M
 ```markdown
 ## ⚠️ Breaking Changes in v4.0.0
 
-- **Dropped Vim 9 support**: This plugin now requires Neovim 0.10+
+- **Dropped Vim 9 support**: This plugin now requires Neovim 0.11+
 - **API Modernization**: Uses `vim.uv`, new highlight APIs, and Lua `load`
 - **Cache Regeneration**: Run `:NightfoxCompile` after upgrading
 ```

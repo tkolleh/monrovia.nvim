@@ -50,7 +50,7 @@
 
 ## Requirements
 
-- Neovim >= 0.8 **or** Vim 9 with lua = **5.1+**
+- Neovim >= 0.11 
 - True color support
 - Undercurl terminal support (optional)
 

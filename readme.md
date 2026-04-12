@@ -1,11 +1,5 @@
-**⚠️ Hardfork Notice**: This is a hardfork of [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim).
-While we honor the original work by EdenEast, monrovia.nvim is now an independent project with:
-
-## Migration from nightfox.nvim
-
-| From | To |
-|------|-----|
-| [EdenEast/nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) | [tkolleh/monrovia.nvim](https://github.com/tkolleh/monrovia.nvim) |
+>**⚠️ Hardfork Notice**: This is a hardfork of [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim).
+>While we honor the original work by EdenEast, monrovia.nvim is now an independent project with:
 
 <p align="center">
   <img width="128" height="128" src="assets/coat_of_arms_of_liberia.png" />
@@ -14,37 +8,15 @@ While we honor the original work by EdenEast, monrovia.nvim is now an independen
 <h1 align="center">Monrovia</h1>
 
 <p align="center">
-  <a href="https://github.com/tkolleh/monrovia.nvim/stargazers"><img src="https://img.shields.io/github/stars/tkolleh/monrovia.nvim?colorA=192330&colorB=719cd6&style=for-the-badge"></a>
-  <a href="https://github.com/tkolleh/monrovia.nvim/issues"><img src="https://img.shields.io/github/issues/tkolleh/monrovia.nvim?colorA=192330&colorB=dbc074&style=for-the-badge"></a>
-  <a href="https://github.com/tkolleh/monrovia.nvim/contributors"><img src="https://img.shields.io/github/contributors/tkolleh/monrovia.nvim?colorA=192330&colorB=81b29a&style=for-the-badge"></a>
-  <a href="https://github.com/tkolleh/monrovia.nvim/network/members"><img src="https://img.shields.io/github/forks/tkolleh/monrovia.nvim?colorA=192330&colorB=9d79d6&style=for-the-badge"></a>
-</p>
-
-<p align="center">
   A highly customizable theme for neovim with support for lsp, treesitter and a variety of plugins.
 </p>
 
 <div align="center">
   <h3>Monrovia Night</h3><img src="https://user-images.githubusercontent.com/2746374/158456286-9e3ee657-60e6-49d8-b85e-dcab285b31c3.png" alt="monrovia_night" style="border-radius:1%" />
   <h3>Monrovia Day</h3><img src="https://user-images.githubusercontent.com/2746374/210672782-6b8690d0-3ef5-4f32-bdea-4f0a97b9d9d5.png" alt="monrovia_day" style="border-radius:1%" />
-  <h3>Monrovia Dawn</h3><img src="https://user-images.githubusercontent.com/2746374/158456278-c5d656de-c445-44b8-9813-9fc91ffbce4c.png" alt="monrovia_dawn" style="border-radius:1%" />
   <h3>Monrovia Dusk</h3><img src="https://user-images.githubusercontent.com/2746374/158456284-b6ff583f-c0bb-417c-b2d5-60b8364049a7.png" alt="monrovia_dusk" style="border-radius:1%" />
-  <h3>Monrovia Twilight</h3><img src="https://user-images.githubusercontent.com/2746374/158456289-eee096df-7ea7-4161-9199-808fdba58e06.png" alt="monrovia_twilight" style="border-radius:1%" />
-  <h3>Monrovia Sunset</h3><img src="https://user-images.githubusercontent.com/2746374/160268126-cd417690-3660-4a04-9040-183c35f127f7.png" alt="monrovia_sunset" style="border-radius:1%" />
   <h3>Monrovia Midnight</h3><img src="https://user-images.githubusercontent.com/2746374/183569670-91260cab-83a9-4247-8e09-6abb46c52152.png" alt="monrovia_midnight" style="border-radius:1%" />
 </div>
-
-> Tabline is [tabby.nvim] and statusline is [feline.nvim]. You can find my config for [tabby] and [feline] here as well
-> as the auto generated [highlight][conf-colors] groups here. If you would like a single consumable file that contains
-> that can be added to your own config check out [misc/feline.lua][misc-feline] and [misc/tabby.lua][misc-tabby].
-
-[tabby.nvim]: https://github.com/nanozuki/tabby.nvim
-[feline.nvim]: https://github.com/freddiehaddad/feline.nvim
-[tabby]: https://github.com/EdenEast/nyx/blob/573ff3f22da95c00ec71a094b3e1ec166c0afcdd/config/.config/nvim/lua/eden/modules/ui/tabby.lua
-[feline]: https://github.com/EdenEast/nyx/blob/573ff3f22da95c00ec71a094b3e1ec166c0afcdd/config/.config/nvim/lua/eden/modules/ui/feline/init.lua
-[conf-colors]: https://github.com/EdenEast/nyx/blob/573ff3f22da95c00ec71a094b3e1ec166c0afcdd/config/.config/nvim/lua/eden/modules/ui/colors.lua
-[misc-feline]: ./misc/feline.lua
-[misc-tabby]: ./misc/tabby.lua
 
 ## ⚠️ Breaking Changes in v4.0.0
 
@@ -62,17 +34,6 @@ While we honor the original work by EdenEast, monrovia.nvim is now an independen
 - [Compile](#compile) user's configuration for fast startup times
 - Export [Color](#color-lib) library utility
 - [Interactive](#interactive) live config re-loading
-
-## Requirements
-
-- Neovim >= 0.10 
-- True color support
-- Undercurl terminal support (optional)
-
-> Note for MacOS: The default `terminal` does not support `true color`. Use either `Iterm2` or [another] terminal that
-> supports true color.
-
-[another]: https://gist.github.com/XVilka/8346728#terminal-emulators
 
 ## Installation
 
@@ -93,10 +54,6 @@ Plug 'monrovia.nvim' " Vim-Plug
 ## Usage
 
 Simply set the colorscheme with the builtin command `:colorscheme`
-
-```vim
-colorscheme monrovia
-```
 
 ```lua
 vim.cmd("colorscheme monrovia")
@@ -625,28 +582,9 @@ map <F2> <cmd>call SynStack()<cr>
 
 </details>
 
-## Extra
-
-There are [extra](./extra) configuration files for the following:
-
-- [alacritty](https://github.com/alacritty/alacritty)
-- [fish](https://fishshell.com/)
-- [iterm](https://iterm2.com/index.html)
-- [kitty](https://sw.kovidgoyal.net/kitty/overview/#configuring-kitty)
-- [konsole](https://konsole.kde.org/)
-- [starship](https://starship.rs/)
-- [tmux](https://github.com/tmux/tmux)
-- [warp](https://www.warp.dev/)
-- [wezterm](https://wezfurlong.org/wezterm/config/appearance.html#defining-a-color-scheme-in-a-separate-file)
-- [windows terminal](https://github.com/Microsoft/Terminal)
-- [xresources](https://wiki.archlinux.org/title/X_resources)
-- [zellij](https://zellij.dev/)
-
-[lualine]: https://github.com/nvim-lualine/lualine.nvim
-[lightline]: https://github.com/itchyny/lightline.vim
-
 ## Acknowledgements
 
+- [nightfox](https://github.com/EdenEast/nightfox.nvim) 🙏🏾
 - [catppuccin](https://github.com/catppuccin/nvim/) (integration/modules)
 - [rose-pine](https://github.com/rose-pine/nvim) (dawnfox/duskfox)
 - [oxocarbon.nvim](https://github.com/shaunsingh/oxocarbon.nvim) (carbonfox)
@@ -654,21 +592,3 @@ There are [extra](./extra) configuration files for the following:
 - [colorhexa](https://www.colorhexa.com/) (detailed color information)
 - [neogit](https://github.com/NeogitOrg/neogit/blob/b688a2c/lua/neogit/lib/color.lua) (base for color lib)
 - [daltonlens](https://daltonlens.org/) (understanding cvd simulations and research. Thanks [@nburrus](https://github.com/nburrus)!)
-
-## References
-
-Some themes were inspired by wallpapers.
-
-<details>
-<summary>Nordfox</summary>
-<img src="https://i.imgur.com/LzJYkpS.jpeg" alt="nordfox_reference" />
-</details>
-
-<details>
-<summary>Terafox</summary>
-<img src="https://user-images.githubusercontent.com/2746374/179428810-69b440d1-7107-49f2-ab2b-aaab1c449cce.jpeg" alt="terafox_reference" />
-</details>
-
-## 💝 Thanks to
-
-- [@keifererikson](https://github.com/keifererikson) for logo

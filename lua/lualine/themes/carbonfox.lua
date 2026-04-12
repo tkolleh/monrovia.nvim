@@ -1,1 +1,1 @@
-return require("nightfox.util.lualine")("carbonfox")
+return require("monrovia.util.lualine")("carbonfox")

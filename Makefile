@@ -1,6 +1,6 @@
 pandocrepo = https://github.com/kdheepak/panvimdoc
 pandocdir = misc/panvimdoc
-TEST_DIR = test/nightfox
+TEST_DIR = test/monrovia
 PLENARY_DIR = test/plenary
 PLENARY_URL = https://github.com/nvim-lua/plenary.nvim/
 
@@ -15,19 +15,19 @@ extragen:
 
 .PHONY : minimal
 minimal:
-	sed -i "s|\"EdenEast/nightfox.nvim\"|dir = \"${root_dir}\"|g" .github/minimal_init.lua
+	sed -i "s|\"monrovia.nvim\"|dir = \"${root_dir}\"|g" .github/minimal_init.lua
 	nvim --clean -u .github/minimal_init.lua .github/minimal_init.lua
 
 .PHONY : docgen
 docgen: $(pandocdir)
 	@pandoc \
-		--metadata=project:nightfox \
-		--metadata="description:A highly customizable theme for vim and neovim" \
+		--metadata=project:monrovia \
+		--metadata="description:A highly customizable theme for Neovim" \
 		--lua-filter misc/panvimdoc/scripts/skip-blocks.lua \
 		--lua-filter misc/panvimdoc/scripts/include-files.lua \
 		-t misc/panvimdoc/scripts/panvimdoc.lua \
 		usage.md \
-		-o doc/nightfox.txt
+		-o doc/monrovia.txt
 
 $(pandocdir):
 	git clone --depth=1 --no-single-branch $(pandocrepo) $(pandocdir)

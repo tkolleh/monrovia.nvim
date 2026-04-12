@@ -1,1 +1,1 @@
-return require("nightfox.util.lualine")("dayfox")
+return require("monrovia.util.lualine")("dayfox")

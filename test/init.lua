@@ -5,13 +5,13 @@ local status, error = pcall(function()
   end
 
   local lazypath = root .. "/plugins/lazy.nvim"
-  if not vim.loop.fs_stat(lazypath) then
+  if not vim.uv.fs_stat(lazypath) then
     vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", lazypath })
   end
   vim.opt.runtimepath:prepend(lazypath)
 
   require("lazy").setup({
-    { "EdenEast/nightfox.nvim", dev = true },
+    { "monrovia.nvim", dev = true },
   }, {
     root = root .. "/plugins",
     dev = {
@@ -19,7 +19,7 @@ local status, error = pcall(function()
     },
   })
 
-  require("nightfox").setup()
+  require("monrovia").setup()
   vim.cmd.colorscheme("nightfox")
 end)
 

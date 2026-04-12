@@ -1,10 +1,10 @@
 local collect = require("monrovia.lib.collect")
 local util = require("monrovia.util")
 
-local M = { fox = "nightfox", has_options = false }
+local M = { fox = "monrovia_night", has_options = false }
 
 local defaults = {
-  compile_path = util.join_paths(util.cache_home, "nightfox"),
+  compile_path = util.join_paths(util.cache_home, "monrovia"),
   compile_file_suffix = "_compiled",
   transparent = false,
   terminal_colors = true,

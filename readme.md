@@ -16,13 +16,13 @@
 </p>
 
 <div align="center">
-  <h3>Nightfox</h3><img src="https://user-images.githubusercontent.com/2746374/158456286-9e3ee657-60e6-49d8-b85e-dcab285b31c3.png" alt="nightfox" style="border-radius:1%" />
-  <h3>Dayfox</h3><img src="https://user-images.githubusercontent.com/2746374/210672782-6b8690d0-3ef5-4f32-bdea-4f0a97b9d9d5.png" alt="dayfox" style="border-radius:1%" />
-  <h3>Dawnfox</h3><img src="https://user-images.githubusercontent.com/2746374/158456278-c5d656de-c445-44b8-9813-9fc91ffbce4c.png" alt="dawnfox" style="border-radius:1%" />
-  <h3>Duskfox</h3><img src="https://user-images.githubusercontent.com/2746374/158456284-b6ff583f-c0bb-417c-b2d5-60b8364049a7.png" alt="duskfox" style="border-radius:1%" />
-  <h3>Nordfox</h3><img src="https://user-images.githubusercontent.com/2746374/158456289-eee096df-7ea7-4161-9199-808fdba58e06.png" alt="nordfox" style="border-radius:1%" />
-  <h3>Terafox</h3><img src="https://user-images.githubusercontent.com/2746374/160268126-cd417690-3660-4a04-9040-183c35f127f7.png" alt="terafox" style="border-radius:1%" />
-  <h3>Carbonfox</h3><img src="https://user-images.githubusercontent.com/2746374/183569670-91260cab-83a9-4247-8e09-6abb46c52152.png" alt="carbonfox" style="border-radius:1%" />
+  <h3>Monrovia Night</h3><img src="https://user-images.githubusercontent.com/2746374/158456286-9e3ee657-60e6-49d8-b85e-dcab285b31c3.png" alt="monrovia_night" style="border-radius:1%" />
+  <h3>Monrovia Day</h3><img src="https://user-images.githubusercontent.com/2746374/210672782-6b8690d0-3ef5-4f32-bdea-4f0a97b9d9d5.png" alt="monrovia_day" style="border-radius:1%" />
+  <h3>Monrovia Dawn</h3><img src="https://user-images.githubusercontent.com/2746374/158456278-c5d656de-c445-44b8-9813-9fc91ffbce4c.png" alt="monrovia_dawn" style="border-radius:1%" />
+  <h3>Monrovia Dusk</h3><img src="https://user-images.githubusercontent.com/2746374/158456284-b6ff583f-c0bb-417c-b2d5-60b8364049a7.png" alt="monrovia_dusk" style="border-radius:1%" />
+  <h3>Monrovia Twilight</h3><img src="https://user-images.githubusercontent.com/2746374/158456289-eee096df-7ea7-4161-9199-808fdba58e06.png" alt="monrovia_twilight" style="border-radius:1%" />
+  <h3>Monrovia Sunset</h3><img src="https://user-images.githubusercontent.com/2746374/160268126-cd417690-3660-4a04-9040-183c35f127f7.png" alt="monrovia_sunset" style="border-radius:1%" />
+  <h3>Monrovia Midnight</h3><img src="https://user-images.githubusercontent.com/2746374/183569670-91260cab-83a9-4247-8e09-6abb46c52152.png" alt="monrovia_midnight" style="border-radius:1%" />
 </div>
 
 > Tabline is [tabby.nvim] and statusline is [feline.nvim]. You can find my config for [tabby] and [feline] here as well
@@ -193,15 +193,15 @@ local palettes = {
     -- Defining just a color defines it's base color
     red = "#ff0000",
   },
-  nightfox = {
+  monrovia_night = {
     -- A specific style's value will be used over the `all`'s value
     red = "#c94f6d",
   },
-  dayfox = {
+  monrovia_day = {
     -- Defining multiple shades is done by passing a table
     blue = { base = "#4d688e", bright = "#4e75aa", dim = "#485e7d" },
   },
-  nordfox = {
+  monrovia_twilight = {
     -- A palette also defines the following:
     --   bg0, bg1, bg2, bg3, bg4, fg0, fg1, fg2, fg3, sel0, sel1, comment
     --
@@ -244,7 +244,7 @@ local specs = {
       changed = "#f4a261",
     },
   },
-  nightfox = {
+  monrovia_night = {
     syntax = {
       -- As with palettes, a specific style's value will be used over the `all`'s value.
       operator = "orange",
@@ -266,7 +266,7 @@ local groups = {
     -- Specs are used for the template. Specs have their palette's as a field that can be accessed
     IncSearch = { bg = "palette.cyan" },
   },
-  nightfox = {
+  monrovia_night = {
     -- As with specs and palettes, a specific style's value will be used over the `all`'s value.
     PmenuSel = { bg = "#73daca", fg = "bg0" },
   },
@@ -303,8 +303,8 @@ define your own value in the `specs` table.
 ```lua
 require("monrovia").setup({
   palettes = {
-    -- Custom duskfox with black background
-    duskfox = {
+    -- Custom Monrovia Dusk with black background
+    monrovia_dusk = {
       bg1 = "#000000", -- Black background
       bg0 = "#1d1d2b", -- Alt backgrounds (floats, statusline, ...)
       bg3 = "#121820", -- 55% darkened from stock
@@ -315,7 +315,7 @@ require("monrovia").setup({
     all = {
       inactive = "bg0", -- Default value for other styles
     },
-    duskfox = {
+    monrovia_dusk = {
       inactive = "#090909", -- Slightly lighter then black background
     },
   },

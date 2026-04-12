@@ -1,6 +1,6 @@
 local function reload()
   for name, _ in pairs(package.loaded) do
-    if name:match("^nightfox") then
+    if name:match("^monrovia_") then
       if not name:match("config") and not name:match("deprecation") and not name:match("override") then
         package.loaded[name] = nil
       end

@@ -20,7 +20,7 @@ local status, error = pcall(function()
   })
 
   require("monrovia").setup()
-  vim.cmd.colorscheme("nightfox")
+  vim.cmd.colorscheme("monrovia_night")
 end)
 
 if error then

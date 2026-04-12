@@ -9,9 +9,9 @@ local function get_filetype()
 end
 
 function M.attach()
-  vim.g.nightfox_debug = true
+  vim.g.monrovia_debug = true
   cmd([[
-    augroup NightfoxInteractiveAugroup
+    augroup MonroviaInteractiveAugroup
       autocmd!
       autocmd BufWritePost <buffer> lua require("monrovia.interactive").execute()
     augroup END

@@ -33,7 +33,7 @@ local extras = {
   windows_terminal = "json",
   xresources = { ext = "Xresources", use_spec_name = true },
   warp = "yaml",
-  zellij = { ext = "kdl", basename = "nightfox", is_full = true },
+  zellij = { ext = "kdl", basename = "monrovia_night", is_full = true },
 }
 
 local specs = require("monrovia.spec").load()

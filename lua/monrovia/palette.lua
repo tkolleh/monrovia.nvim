@@ -36,14 +36,14 @@ local config = require("monrovia.config")
 
 local M = {}
 
-M.foxes = {
-  "carbonfox",
-  "dawnfox",
-  "dayfox",
-  "duskfox",
-  "nightfox",
-  "nordfox",
-  "terafox",
+M.themes = {
+  "monrovia_dawn",
+  "monrovia_day",
+  "monrovia_dusk",
+  "monrovia_midnight",
+  "monrovia_night",
+  "monrovia_sunset",
+  "monrovia_twilight",
 }
 
 local function override(color, ovr)
@@ -101,8 +101,8 @@ function M.load(name)
   end
 
   if name then
-    local valid = collect.contains(M.foxes, name)
-    local raw = valid and require("monrovia.palette." .. name) or require("monrovia.palette.nightfox")
+    local valid = collect.contains(M.themes, name)
+    local raw = valid and require("monrovia.palette." .. name) or require("monrovia.palette.monrovia_night")
     local palette = raw.palette
     palette = cb_func(palette)
     palette = apply_ovr("all", palette)
@@ -112,7 +112,7 @@ function M.load(name)
     return palette
   else
     local result = {}
-    for _, mod in ipairs(M.foxes) do
+    for _, mod in ipairs(M.themes) do
       local raw = require("monrovia.palette." .. mod)
       local palette = raw.palette
       palette = cb_func(palette)

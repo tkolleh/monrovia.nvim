@@ -29,4 +29,4 @@ require("lazy").setup(plugins, {
   root = root .. "/plugins",
 })
 
-vim.cmd.colorscheme("nightfox")
+vim.cmd.colorscheme("monrovia_night")

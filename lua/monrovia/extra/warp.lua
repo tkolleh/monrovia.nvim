@@ -27,7 +27,7 @@ function M.generate(spec, _)
   }
 
   local content = [[
-# Nightfox Warp Colors
+# Monrovia Warp Colors
 # Style: ${meta.name}
 # Upstream: ${meta.url}
 accent:     '${fg}'

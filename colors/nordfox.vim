@@ -1,9 +1,9 @@
 lua << EOF
 -- Useful when debugging
 if vim.g.nightfox_debug then
-  require("nightfox.util.reload")()
+  require("monrovia.util.reload")()
 end
 
-require("nightfox.config").set_fox("nordfox")
-require("nightfox").load()
+require("monrovia.config").set_fox("nordfox")
+require("monrovia").load()
 EOF

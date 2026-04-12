@@ -2,7 +2,7 @@
   <img width="128" height="128" src="https://user-images.githubusercontent.com/2746374/179428323-6d6b5e7f-6459-47b3-9e03-fea7553d85af.svg" />
 </p>
 
-<h1 align="center">Nightfox</h1>
+<h1 align="center">Monrovia</h1>
 
 <p align="center">
   <a href="https://github.com/edeneast/nightfox.nvim/stargazers"><img src="https://img.shields.io/github/stars/edeneast/nightfox.nvim?colorA=192330&colorB=719cd6&style=for-the-badge"></a>
@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  A highly customizable theme for vim and neovim with support for lsp, treesitter and a variety of plugins.
+  A highly customizable theme for neovim with support for lsp, treesitter and a variety of plugins.
 </p>
 
 <div align="center">
@@ -37,9 +37,15 @@
 [misc-feline]: ./misc/feline.lua
 [misc-tabby]: ./misc/tabby.lua
 
+## ⚠️ Breaking Changes in v4.0.0
+
+- **Neovim 0.10+ required**: Dropped support for Vim and Neovim < 0.10
+- **Renamed to monrovia.nvim**: New plugin name (fork of nightfox.nvim)
+- **API Modernization**: Uses `vim.uv`, `nvim_get_hl`, and Lua `load`
+- **Run `:MonroviaCompile`**: Cache regeneration required after upgrade
+
 ## Features
 
-- Supports both vim and neovim
 - Highly configurable with template overriding
 - [Colorblind](#colorblind) mode (daltonization, and simulation)
 - Support for multiple [plugins](#supported-plugins) and [status lines](#status-lines)
@@ -50,7 +56,7 @@
 
 ## Requirements
 
-- Neovim >= 0.11 
+- Neovim >= 0.10 
 - True color support
 - Undercurl terminal support (optional)
 
@@ -64,15 +70,15 @@
 Download with your favorite package manager.
 
 ```lua
-{ "EdenEast/nightfox.nvim" } -- lazy
+{ "monrovia.nvim" } -- lazy
 ```
 
 ```lua
-use "EdenEast/nightfox.nvim" -- Packer
+use "monrovia.nvim" -- Packer
 ```
 
 ```vim
-Plug 'EdenEast/nightfox.nvim' " Vim-Plug
+Plug 'monrovia.nvim' " Vim-Plug
 ```
 
 ## Usage
@@ -80,11 +86,11 @@ Plug 'EdenEast/nightfox.nvim' " Vim-Plug
 Simply set the colorscheme with the builtin command `:colorscheme`
 
 ```vim
-colorscheme nightfox
+colorscheme monrovia
 ```
 
 ```lua
-vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme monrovia")
 ```
 
 ## Configuration
@@ -93,10 +99,10 @@ There is no need to call `setup` if you don't want to change the default options
 
 ```lua
 -- Default options
-require('nightfox').setup({
+require('monrovia').setup({
   options = {
     -- Compiled file's destination location
-    compile_path = vim.fn.stdpath("cache") .. "/nightfox",
+    compile_path = vim.fn.stdpath("cache") .. "/monrovia",
     compile_file_suffix = "_compiled", -- Compiled file suffix
     transparent = false,     -- Disable setting background
     terminal_colors = true,  -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
@@ -138,7 +144,7 @@ require('nightfox').setup({
 })
 
 -- setup must be called before loading
-vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme monrovia")
 ```
 
 If you would like to change any of the default options above you only have to define the options that change. If an
@@ -146,7 +152,7 @@ option is not present in your options table the default option will be used. For
 certain syntax is the only desired change then your options table would look like:
 
 ```lua
-require('nightfox').setup({
+require('monrovia').setup({
   options = {
     styles = {
       comments = "italic",
@@ -157,12 +163,12 @@ require('nightfox').setup({
 })
 ```
 
-To see a detailed explanation of nightfox's config settings consult either the builtin help `:help nightfox` or
+To see a detailed explanation of monrovia's config settings consult either the builtin help `:help monrovia` or
 [Usage](./usage.md).
 
 ### Modules
 
-Nightfox's modules store configuration information for various plugins and other neovim modules. To enable a module
+Monrovia's modules store configuration information for various plugins and other neovim modules. To enable a module
 either set the module to `true` or if the module has additional configuration information set `enable` to `true`.
 
 By default modules will be enabled. To change this behaviour change `options.module_default` to `false`.
@@ -171,7 +177,7 @@ To see a list of modules check, see [Usage](./usage.md#module) or `:help` for mo
 
 ### Customize palettes and groups
 
-You can change the color `palette` and the highlight `group` of nightfox. Here is a brief example:
+You can change the color `palette` and the highlight `group` of monrovia. Here is a brief example:
 
 ```lua
 -- Palettes are the base color defines of a colorscheme.
@@ -266,20 +272,20 @@ local groups = {
   },
 }
 
-require("nightfox").setup({ palettes = palettes, specs = specs, groups = groups })
+require("monrovia").setup({ palettes = palettes, specs = specs, groups = groups })
 
 -- setup must be called before loading
-vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme monrovia")
 ```
 
 To find the list of syntax highlight groups defined for vim use the help `:help group-name` and
-`:help nvim-treesitter-highlights` for treesitter. If you would also like to see how nightfox defines these highlight groups
+`:help nvim-treesitter-highlights` for treesitter. If you would also like to see how monrovia defines these highlight groups
 you can see [syntax.lua] for vim's syntax and [treesitter.lua] for treesitter. These files list out all all highlight
 groups and have a comment describing them. Another file to note is [editor.lua] which is the highlight groups responsible
 for how vim looks (background, cursorline, tabline, etc...). To get the highlight group under your cursor see
 [here](#syntax-highlight-groups) for more information
 
-To get more information check out [Usage](./usage.md#configuration) or the help file `:help nightfox` for more detailed information.
+To get more information check out [Usage](./usage.md#configuration) or the help file `:help monrovia` for more detailed information.
 
 [editor.lua]: https://github.com/EdenEast/nightfox.nvim/blob/main/lua/nightfox/group/editor.lua
 [syntax.lua]: https://github.com/EdenEast/nightfox.nvim/blob/main/lua/nightfox/group/syntax.lua
@@ -287,7 +293,7 @@ To get more information check out [Usage](./usage.md#configuration) or the help 
 
 ### Custom template values
 
-Nightfox's `palettes` and `specs` can be extended with your own values. This is useful for users that want to
+Monrovia's `palettes` and `specs` can be extended with your own values. This is useful for users that want to
 distinguish a spec value being used for multiple group definitions. This is best understood with an example:
 
 `bg0` is used as the dark alternative background color. This is used in multiple areas (non-current file, status line,
@@ -295,7 +301,7 @@ normal float, etc...). If you would like to have the inactive color diffferent t
 define your own value in the `specs` table.
 
 ```lua
-require("nightfox").setup({
+require("monrovia").setup({
   palettes = {
     -- Custom duskfox with black background
     duskfox = {
@@ -323,7 +329,7 @@ require("nightfox").setup({
 
 ## Api
 
-Nightfox exposes some Api's and utility classes that let you fetch data from nightfox.
+Monrovia exposes some Api's and utility classes that let you fetch data from monrovia.
 
 ### Palettes
 
@@ -331,10 +337,10 @@ You can get the palettes used by each colorscheme:
 
 ```lua
 -- Returns a table with each colorscheme and the palette associated with it
-local palettes = require('nightfox.palette').load()
+local palettes = require('monrovia.palette').load()
 
 -- Returns the palette of the specified colorscheme
-local palette = require('nightfox.palette').load("nightfox")
+local palette = require('monrovia.palette').load("monrovia")
 
 print(vim.inspect(palette.red))
 -- {
@@ -352,10 +358,10 @@ You can get the spec used by each colorscheme:
 
 ```lua
 -- Returns a table with each colorscheme and the spec associated with it
-local specs require('nightfox.spec').load()
+local specs require('monrovia.spec').load()
 
 -- Returns the spec of the specified colorscheme
-local spec = require('nightfox.spec').load("nightfox")
+local spec = require('monrovia.spec').load("monrovia")
 
 print(vim.inspect(spec.git))
 -- {
@@ -369,11 +375,11 @@ See [Usage](./usage.md#spec) for more information on specs.
 
 ### Color lib
 
-Nightfox uses a color library internally to manipulate colors. You can use this library as well.
+Monrovia uses a color library internally to manipulate colors. You can use this library as well.
 
 ```lua
-local palette = require('nightfox.palette').load('nightfox')
-local Color = require("nightfox.lib.color")
+local palette = require('monrovia.palette').load('monrovia')
+local Color = require("monrovia.lib.color")
 
 local bg = Color.from_hex(palette.bg1)
 local red = Color.from_hex("#ff0000")
@@ -400,7 +406,7 @@ See [Usage](./usage.md#color) for more information on `Color`.
 
 ## Colorblind
 
-For individuals with `color vision deficiency` (cvd), nightfox has implemented a `colorblind` mode to help enhance color
+For individuals with `color vision deficiency` (cvd), monrovia has implemented a `colorblind` mode to help enhance color
 contrast. This can be enabled with this option `colorblind.enable`.
 
 <details>
@@ -428,12 +434,12 @@ two cones (dichromats or dichromacy).
 
 ### Configuring cvd
 
-Nightfox needs to simulate your cvd in order to shift colors correctly. This is done by setting your cvd type's severity
+Monrovia needs to simulate your cvd in order to shift colors correctly. This is done by setting your cvd type's severity
 level. Severity is a value between `0` and `1` where `1` is full dichromacy. You can also have multiple kinds of cvd
 configured at a time. Here is a full example:
 
 ```lua
-require("nightfox").setup({
+require("monrovia").setup({
   options = {
     colorblind = {
       enable = true,
@@ -449,8 +455,8 @@ require("nightfox").setup({
 If you are looking for a way to self evaluate what severity factor to use, check out [daltonlens's][cb-self-eval] self
 evaluation article with interactive self evaluation Ishihasa plates.
 
-Another method would be to use the option `colorblind.simulate_only` option along with nightfox's
-[interactive](#interactive) mode. While nightfox is simulating cvd set a severity to 1. Now decrease the severity
+Another method would be to use the option `colorblind.simulate_only` option along with monrovia's
+[interactive](#interactive) mode. While monrovia is simulating cvd set a severity to 1. Now decrease the severity
 incrementally until you cannot perceive a difference in the change of colors.
 
 [cb-self-eval]: https://daltonlens.org/evaluating-cvd-simulation/#Generating-Ishihara-like-plates-for-self-evaluation
@@ -470,36 +476,36 @@ You can see the simulated colors instead of the corrected colors by setting the 
 
 ## Compile
 
-Nightfox is a highly customizable and configurable colorscheme. This does however come at the cost of complexity and
+Monrovia is a highly customizable and configurable colorscheme. This does however come at the cost of complexity and
 execution time.
 
-Nightfox pre-computes the result of your configuration and saves the lua bytecode in a cache to be used on next load.
-This significantly speeds up nightfox's execution time. Changes to your configuration will be re-computed and cached
+Monrovia pre-computes the result of your configuration and saves the lua bytecode in a cache to be used on next load.
+This significantly speeds up monrovia's execution time. Changes to your configuration will be re-computed and cached
 automatically.
 
-By default nightfox writes the compiled results into the system's `cache` directory. On unix this is
-`$XDG_CACHE_HOME/nvim/nightfox` and on windows this is `%localappdata%\\Temp\\nvim\\nightfox`.
+By default monrovia writes the compiled results into the system's `cache` directory. On unix this is
+`$XDG_CACHE_HOME/nvim/monrovia` and on windows this is `%localappdata%\\Temp\\nvim\\monrovia`.
 
-Nightfox provides functions to work with the nightfox compiler.
+Monrovia provides functions to work with the monrovia compiler.
 
 ```vim
-:NightfoxCompile " Manually call nightfox compiler to create/update compiled files
+:MonroviaCompile " Manually call monrovia compiler to create/update compiled files
 ```
 
 ```lua
-require('nightfox').compile() -- lua api version
+require('monrovia').compile() -- lua api version
 ```
 
 ## Interactive
 
-Nightfox makes it easy to make changes to its config and see the results. For this nightfox exposes the command:
+Monrovia makes it easy to make changes to its config and see the results. For this monrovia exposes the command:
 
 ```
-NightfoxInteractive
+MonroviaInteractive
 ```
 
 This command will attach an autocmd to the current buffer that executes on `BufferWritePost`. The
-autocmd will clear nightfox's internal state and re-source it's config from the newly saved file. It will then reset the
+autocmd will clear monrovia's internal state and re-source it's config from the newly saved file. It will then reset the
 colorscheme.
 
 ![demo](https://user-images.githubusercontent.com/2746374/211108157-b5221ea4-9369-453d-9c27-4a71ac161a55.gif)
@@ -507,7 +513,7 @@ colorscheme.
 There are a few things to note:
 
 - This requires executing `luafile` on the current file. Any syntax errors will throw errors.
-- If you are using packer and have nightfox's config in a `config = function() end` block, this will not work as packer
+- If you are using packer and have monrovia's config in a `config = function() end` block, this will not work as packer
   would require to be re-compiled and the compiled file sourced.
 
 ## Supported Plugins
@@ -556,7 +562,7 @@ Lualine checks the value of `vim.g.colors_name` (set when using `:colorscheme` c
 Set your colorscheme before calling setup.
 
 ```lua
-vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme monrovia")
 require('lualine').setup({ ... })
 ```
 
@@ -566,8 +572,8 @@ Lightline checks the value of `vim.g.lightline.colorscheme`. It does not depend 
 the value of the `:colorscheme` command, Please set it.
 
 ```lua
-vim.cmd("colorscheme nightfox")
-vim.g.lightline = { colorscheme = "nightfox" } -- Or the name of colorscheme you use
+vim.cmd("colorscheme monrovia")
+vim.g.lightline = { colorscheme = "monrovia" } -- Or the name of colorscheme you use
 ```
 
 ## Syntax highlight groups

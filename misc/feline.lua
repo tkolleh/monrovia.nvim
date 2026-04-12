@@ -1,8 +1,8 @@
 -- Feline
--- https://github.com/EdenEast/nightfox.nvim/blob/main/mics/feline.lua
+-- https://github.com/EdenEast/monrovia/blob/main/misc/feline.lua
 --
 -- This file is a complete example of creating the feline configuration shown in the readme of
--- nightfox. This configuration generates its own highlight groups from the currently applied
+-- monrovia. This configuration generates its own highlight groups from the currently applied
 -- colorscheme. These highlight groups are regenreated on colorscheme changes.
 --
 -- Required plugins:
@@ -16,7 +16,7 @@
 -- # Example:
 --
 -- ```lua
--- vim.cmd("colorscheme nightfox")
+-- vim.cmd("colorscheme monrovia")
 -- require('user.ui.feline')
 -- ```
 --
@@ -56,7 +56,7 @@ end
 ---@param name string
 ---@return table
 local function get_highlight(name)
-  local hl = vim.api.nvim_get_hl_by_name(name, true)
+  local hl = vim.api.nvim_get_hl(0, { name = name, link = false })
   if hl.link then
     return get_highlight(hl.link)
   end

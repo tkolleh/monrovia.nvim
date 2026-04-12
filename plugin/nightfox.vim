@@ -1,7 +1,7 @@
 " Load only once
-if exists('g:loaded_nightfox') | finish | endif
+if exists('g:loaded_monrovia') | finish | endif
 
-command! NightfoxCompile lua require('nightfox').compile()
-command! NightfoxInteractive lua require('nightfox.interactive').attach()
+command! MonroviaCompile lua require('monrovia').compile()
+command! MonroviaInteractive lua require('monrovia.interactive').attach()
 
-let g:loaded_nightfox = 1
+let g:loaded_monrovia = 1

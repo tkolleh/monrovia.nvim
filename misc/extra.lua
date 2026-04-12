@@ -4,7 +4,7 @@
 vim.opt.runtimepath:append("./.")
 -- package.path = "./lua/?/init.lua;./lua/?.lua"
 
-local util = require("nightfox.util")
+local util = require("monrovia.util")
 local join = util.join_paths
 local fmt = string.format
 
@@ -36,12 +36,12 @@ local extras = {
   zellij = { ext = "kdl", basename = "nightfox", is_full = true },
 }
 
-local specs = require("nightfox.spec").load()
+local specs = require("monrovia.spec").load()
 table.sort(specs)
 
 for extra_name, extra in pairs(extras) do
   local is_table = type(extra) == "table"
-  local mod = require("nightfox.extra." .. extra_name)
+  local mod = require("monrovia.extra." .. extra_name)
   if is_table and extra.is_full then
     local folder = join("extra", extra_name)
     local filename = extra.basename and fmt("%s.%s", extra.basename, extra.ext) or fmt("%s.%s", extra_name, extra.ext)

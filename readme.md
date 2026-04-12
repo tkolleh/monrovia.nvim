@@ -8,7 +8,7 @@ While we honor the original work by EdenEast, monrovia.nvim is now an independen
 | [EdenEast/nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) | [tkolleh/monrovia.nvim](https://github.com/tkolleh/monrovia.nvim) |
 
 <p align="center">
-  <img width="128" height="128" src="https://user-images.githubusercontent.com/2746374/179428323-6d6b5e7f-6459-47b3-9e03-fea7553d85af.svg" />
+  <img width="128" height="128" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Coat_of_arms_of_Liberia.svg/128px-Coat_of_arms_of_Liberia.svg.png" />
 </p>
 
 <h1 align="center">Monrovia</h1>

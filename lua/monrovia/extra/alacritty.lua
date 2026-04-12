@@ -7,7 +7,7 @@ function M.generate(spec, _)
   spec.bright_fg = spec.palette.meta.light and spec.fg2 or spec.fg0
 
   local content = [===[
-# Nightfox Alacritty Colors
+# Monrovia Alacritty Colors
 ## name: ${palette.meta.name}
 ## upstream: ${palette.meta.url}
 

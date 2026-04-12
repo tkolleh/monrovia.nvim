@@ -35,7 +35,7 @@ function M.generate(spec, _)
   }
 
   local content = [[
-# Nightfox Color Palette
+# Monrovia Color Palette
 # Style: ${meta.name}
 # Upstream: ${meta.url}
 set -l foreground ${fg}

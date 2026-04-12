@@ -7,7 +7,7 @@ function M.generate(specs, opts)
   local lines = {}
   lines[#lines + 1] = string.format(
     [[
-// Nightfox Theme:
+// Monrovia Theme:
 // Upstream: %s
 
 themes {

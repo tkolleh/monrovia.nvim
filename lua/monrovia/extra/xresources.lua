@@ -4,7 +4,7 @@ local M = {}
 
 function M.generate(spec, _)
   local content = [[
-! Nightfox colors for Xresources
+! Monrovia colors for Xresources
 ! Style: ${palette.meta.name}
 ! Upstream: ${palette.meta.url}
 *background: ${bg1}

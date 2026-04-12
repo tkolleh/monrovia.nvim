@@ -47,7 +47,7 @@ function M.generate(spec, _)
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<!-- Nightfox ITerm Colors -->
+<!-- Monrovia ITerm Colors -->
 <!-- Style: ${meta.name} -->
 <!-- Upstream: ${meta.url} -->
 <dict>

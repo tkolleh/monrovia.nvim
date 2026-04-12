@@ -68,7 +68,7 @@ vim.o.background = "%s"
   util.ensure_dir(output_path)
 
   local file, err
-  if vim.g.nightfox_debug then
+  if vim.g.monrovia_debug then
     file = io.open(output_file .. ".lua", "wb")
     file:write(table.concat(lines, "\n"))
     file:close()
@@ -91,7 +91,7 @@ You could try deleting %s to reset permissions]],
 
   local f = load(table.concat(lines, "\n"), "=")
   if not f then
-    local tmpfile = util.join_paths(util.get_tmp_dir(), "nightfox_error.lua")
+    local tmpfile = util.join_paths(util.get_tmp_dir(), "monrovia_error.lua")
     require("monrovia.lib.log").error(fmt(
       [[There is an error in your nigtfox config.
 You can open '%s' for debugging.

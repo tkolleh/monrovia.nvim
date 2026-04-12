@@ -6,7 +6,7 @@ local Shade = require("monrovia.lib.shade")
 -- - https://torako.wakarimasen.moe/file/torako/wg/image/1622/83/1622838138777.jpg
 
 local meta = {
-  name = "terafox",
+  name = "monrovia_sunset",
   light = false,
 }
 

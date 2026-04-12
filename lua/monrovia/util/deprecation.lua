@@ -31,7 +31,7 @@ function M.check_deprecation(opts)
   local function check_opt(name, o)
     if opts[name] then
       local replace = o and o.replace or string.format("options.%s", name)
-      local help = o and o.help or "nightfox"
+      local help = o and o.help or "monrovia_night"
       dep.write(
         "  ",
         { name, "WarningMsg" },

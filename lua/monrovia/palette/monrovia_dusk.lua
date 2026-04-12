@@ -2,7 +2,7 @@ local C = require("monrovia.lib.color")
 local Shade = require("monrovia.lib.shade")
 
 local meta = {
-  name = "duskfox",
+  name = "monrovia_dusk",
   light = false,
 }
 

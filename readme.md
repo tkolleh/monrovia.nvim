@@ -1,17 +1,12 @@
-# ⚠️ Repository Archived
+**⚠️ Hardfork Notice**: This is a hardfork of [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim).
+While we honor the original work by EdenEast, monrovia.nvim is now an independent project with:
 
-This repository has been archived. The project has been hardforked to [monrovia.nvim](https://github.com/tkolleh/monrovia.nvim).
+## Migration from nightfox.nvim
 
-## What's Different?
+| From | To |
+|------|-----|
+| [EdenEast/nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) | [tkolleh/monrovia.nvim](https://github.com/tkolleh/monrovia.nvim) |
 
-| Feature | nightfox.nvim (this repo) | monrovia.nvim (new) |
-|---------|---------------------------|---------------------|
-| Vim Support | ✅ Vim 9 + Neovim 0.8+ | ❌ Neovim 0.10+ only |
-| Theme Names | nightfox, dayfox, duskfox, etc. | monrovia_night, monrovia_day, etc. |
-| APIs | Legacy (vim.loop, loadstring) | Modern (vim.uv, load) |
-| Maintenance | Archived | Active |
-
-Please use [monrovia.nvim](https://github.com/tkolleh/monrovia.nvim) for new features and updates.
 <p align="center">
   <img width="128" height="128" src="https://user-images.githubusercontent.com/2746374/179428323-6d6b5e7f-6459-47b3-9e03-fea7553d85af.svg" />
 </p>
@@ -19,10 +14,10 @@ Please use [monrovia.nvim](https://github.com/tkolleh/monrovia.nvim) for new fea
 <h1 align="center">Monrovia</h1>
 
 <p align="center">
-  <a href="https://github.com/edeneast/nightfox.nvim/stargazers"><img src="https://img.shields.io/github/stars/edeneast/nightfox.nvim?colorA=192330&colorB=719cd6&style=for-the-badge"></a>
-  <a href="https://github.com/edeneast/nightfox.nvim/issues"><img src="https://img.shields.io/github/issues/edeneast/nightfox.nvim?colorA=192330&colorB=dbc074&style=for-the-badge"></a>
-  <a href="https://github.com/edeneast/nightfox.nvim/contributors"><img src="https://img.shields.io/github/contributors/edeneast/nightfox.nvim?colorA=192330&colorB=81b29a&style=for-the-badge"></a>
-  <a href="https://github.com/EdenEast/nightfox.nvim/network/members"><img src="https://img.shields.io/github/forks/edeneast/nightfox.nvim?colorA=192330&colorB=9d79d6&style=for-the-badge"></a>
+  <a href="https://github.com/tkolleh/monrovia.nvim/stargazers"><img src="https://img.shields.io/github/stars/tkolleh/monrovia.nvim?colorA=192330&colorB=719cd6&style=for-the-badge"></a>
+  <a href="https://github.com/tkolleh/monrovia.nvim/issues"><img src="https://img.shields.io/github/issues/tkolleh/monrovia.nvim?colorA=192330&colorB=dbc074&style=for-the-badge"></a>
+  <a href="https://github.com/tkolleh/monrovia.nvim/contributors"><img src="https://img.shields.io/github/contributors/tkolleh/monrovia.nvim?colorA=192330&colorB=81b29a&style=for-the-badge"></a>
+  <a href="https://github.com/tkolleh/monrovia.nvim/network/members"><img src="https://img.shields.io/github/forks/tkolleh/monrovia.nvim?colorA=192330&colorB=9d79d6&style=for-the-badge"></a>
 </p>
 
 <p align="center">
@@ -54,7 +49,7 @@ Please use [monrovia.nvim](https://github.com/tkolleh/monrovia.nvim) for new fea
 ## ⚠️ Breaking Changes in v4.0.0
 
 - **Neovim 0.10+ required**: Dropped support for Vim and Neovim < 0.10
-- **Renamed to monrovia.nvim**: New plugin name (fork of nightfox.nvim)
+- **Renamed to monrovia.nvim**: New plugin name (hardfork of nightfox.nvim)
 - **API Modernization**: Uses `vim.uv`, `nvim_get_hl`, and Lua `load`
 - **Run `:MonroviaCompile`**: Cache regeneration required after upgrade
 
@@ -301,9 +296,9 @@ for how vim looks (background, cursorline, tabline, etc...). To get the highligh
 
 To get more information check out [Usage](./usage.md#configuration) or the help file `:help monrovia` for more detailed information.
 
-[editor.lua]: https://github.com/EdenEast/nightfox.nvim/blob/main/lua/nightfox/group/editor.lua
-[syntax.lua]: https://github.com/EdenEast/nightfox.nvim/blob/main/lua/nightfox/group/syntax.lua
-[treesitter.lua]: https://github.com/EdenEast/nightfox.nvim/blob/main/lua/nightfox/group/modules/treesitter.lua
+[editor.lua]: https://github.com/tkolleh/monrovia.nvim/blob/main/lua/nightfox/group/editor.lua
+[syntax.lua]: https://github.com/tkolleh/monrovia.nvim/blob/main/lua/nightfox/group/syntax.lua
+[treesitter.lua]: https://github.com/tkolleh/monrovia.nvim/blob/main/lua/nightfox/group/modules/treesitter.lua
 
 ### Custom template values
 

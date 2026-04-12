@@ -1,26 +1,26 @@
 ## Overview
 
-Nightfox is a highly customizable theme for vim and neovim with support for lsp, treesitter and a variety of plugins.
+Monrovia is a highly customizable theme for vim and neovim with support for lsp, treesitter and a variety of plugins.
 It comes with multiple different styles to suite your preference. These are:
 
-- `Nightfox`
-- `Dayfox`
-- `Dawnfox`
-- `Duskfox`
-- `Nordfox`
-- `Terafox`
-- `Carbonfox`
+- `monrovia_night`
+- `monrovia_day`
+- `monrovia_dawn`
+- `monrovia_dusk`
+- `monrovia_twilight`
+- `monrovia_sunset`
+- `monrovia_midnight`
 
 ## Usage
 
-At it's core nightfox is simply a colorscheme just like any other. If you just want to use the theme out of the box
+At it's core monrovia is simply a colorscheme just like any other. If you just want to use the theme out of the box
 simply set the colorscheme with the `:colorscheme` command
 
 ```vim
-:colorscheme nightfox
+:colorscheme monrovia
 ```
 
-Nightfox is built to be customizable. There are four main components that can be customized. These are [option],
+Monrovia is built to be customizable. There are four main components that can be customized. These are [option],
 [palette], [spec], and [group].
 
 [option]: #option
@@ -31,14 +31,14 @@ Nightfox is built to be customizable. There are four main components that can be
 
 ## Configuration
 
-Nightfox allows you to set individual components separately as apposed to using the default `setup` function.
+Monrovia allows you to set individual components separately as apposed to using the default `setup` function.
 
 ### Init
 
-The `init()` function set nightfox's config [options][option].
+The `init()` function set monrovia's config [options][option].
 
 ```lua
-require('nightfox').init({
+require('monrovia').init({
   dim_inactive = true,
 })
 ```
@@ -48,17 +48,17 @@ require('nightfox').init({
 The individual components: [palettes][palette], [specs][spec] and [groups][group] can be set separately.
 
 ```lua
-local override = require('nightfox').override
+local override = require('monrovia').override
 override.palettes({
-  nightfox = {
+  monrovia_night = {
     red = "#c94f6d",
   },
-  nordfox = {
+  monrovia_night = {
     comment = "#60728a",
   },
 })
 override.specs({
-  nightfox = {
+  monrovia_night = {
     syntax = {
       keyword = "magenta"
     }
@@ -86,15 +86,15 @@ local options = {
   dim_inactive = true,
 }
 local palettes = {
-  nightfox = {
+  monrovia_night = {
     red = "#c94f6d",
   },
-  nordfox = {
+  monrovia_night = {
     comment = "#60728a",
   },
 }
 local specs = {
-  nightfox = {
+  monrovia_night = {
     syntax = {
       keyword = "magenta"
     }
@@ -105,7 +105,7 @@ local groups = {
     IncSearch = { bg = "palette.cyan" },
   },
 }
-require('nightfox').setup({
+require('monrovia').setup({
   options = options,
   palettes = palettes,
   specs = specs,
@@ -115,8 +115,8 @@ require('nightfox').setup({
 
 ## Templates
 
-Templates allow for referencing of other lower level objects in nightfox's config. For example instead of setting an
-absolute color value, you can refer to a lower object's value instead. The base of nightfox is a [palette]. A palette
+Templates allow for referencing of other lower level objects in monrovia's config. For example instead of setting an
+absolute color value, you can refer to a lower object's value instead. The base of monrovia is a [palette]. A palette
 does not use a template as it is the base that others built off of. [Palettes][palette] are used as the template source
 for [spec] objects. [Specs][spec] objects are used as template source for [group] objects.
 
@@ -131,7 +131,7 @@ Note: If the resulting value of a template is a [shade] then the `base` value wi
 ```lua
 -- Specs use palettes as the template source
 local specs = {
-  nightfox = {
+  monrovia_night = {
     syntax = {
       -- Value does not start with `#` so is treated as a template.
       -- Since `magenta` is a `shade` object the `base` value will be used.
@@ -163,7 +163,7 @@ local groups = {
   },
 }
 
-require('nightfox').setup({ specs = specs, groups = groups })
+require('monrovia').setup({ specs = specs, groups = groups })
 ```
 
 ## Option
@@ -171,7 +171,7 @@ require('nightfox').setup({ specs = specs, groups = groups })
 #### options.compile_path {path}
 
 The output directory {path} where the compiled results will be written to. Default:
-`vim.fn.stdpath("cache")/nightfox`.
+`vim.fn.stdpath("cache")/monrovia`.
 
 #### options.compile_file_suffix {suffix}
 
@@ -233,7 +233,7 @@ default search color it will inverse the foreground and background colors.
 
 #### options.colorblind {table}
 
-`colorblind` stores configuration information for nightfox's `color vision deficiency` (cdv) mode. This contains the
+`colorblind` stores configuration information for monrovia's `color vision deficiency` (cdv) mode. This contains the
 following table:
 
 ```lua
@@ -252,7 +252,7 @@ colorblind = {
 
 `modules` store configuration information for various plugins and other neovim modules. A module can either be a boolean
 or a table that contains additional configuration for that module. If the value is a table it also has a field called
-`enable` that will tell nightfox to load it. See [modules] for more information.
+`enable` that will tell monrovia to load it. See [modules] for more information.
 
 By default modules will be enabled. To change this behaviour change `options.module_default` to `false`.
 
@@ -264,7 +264,7 @@ A `shade` is a way to group a `base` color with a `bright` and `dim` version. Th
 colors will be defined from. For example:
 
 ```lua
-local Shade = require("nightfox.lib.shade")
+local Shade = require("monrovia.lib.shade")
 local red = Shade.new("#bf616a", "#d06f79", "#a54e56"),
 print(vim.inspect(red))
 -- {
@@ -274,7 +274,7 @@ print(vim.inspect(red))
 -- }
 ```
 
-This is just a convience structure for building palette for nightfox and should not be used outside of it. This is noted
+This is just a convience structure for building palette for monrovia and should not be used outside of it. This is noted
 here to help understand the structure of a [palette].
 
 ## Palette
@@ -378,7 +378,7 @@ defined, and the table value is the arguments to the |:highlight| command.
 | style | \|highlight-gui\|   | The style of the highlight group. Ex `italic`, `bold`, etc |
 | link  | \|highlight-link\|  | Link one `highlight-group` to another                      |
 
-If the value of `link` is present and is not empty, nightfox will link the group to the corresponding value.
+If the value of `link` is present and is not empty, monrovia will link the group to the corresponding value.
 
 ## Modules
 
@@ -476,11 +476,11 @@ This module sets highlight groups from neovim's builtin `lsp`.
 
 ## Color
 
-Nightfox exposes a color utility library to help with manipulating colors. This library can be required using the
+Monrovia exposes a color utility library to help with manipulating colors. This library can be required using the
 following module:
 
 ```lua
-local Color = require('nightfox.lib.color')
+local Color = require('monrovia.lib.color')
 
 ```
 
@@ -564,7 +564,7 @@ wrapped from `[0,360]`, meaning that if the value exceeds `360` it will be wrapp
 
 ## Colorblind
 
-For individuals with `color vision deficiency` (cvd), nightfox has implemented a `colorblind` mode to help enhance color
+For individuals with `color vision deficiency` (cvd), monrovia has implemented a `colorblind` mode to help enhance color
 contrast. This can be enabled with this option `colorblind.enable`.
 
 There are three types of `color vision deficiency` (cvd)
@@ -581,7 +581,7 @@ where `1` is full `dichromacy` (missing cone type).
 **Example:**
 
 ```lua
-require("nightfox").setup({
+require("monrovia").setup({
   options = {
     colorblind = {
       enable = true,
@@ -596,46 +596,46 @@ require("nightfox").setup({
 
 ## Compile
 
-Nightfox is a highly customizable and configurable colorscheme. This does however come at the cost of complexity and
+Monrovia is a highly customizable and configurable colorscheme. This does however come at the cost of complexity and
 execution time.
 
-Nightfox pre-computes the result of your configuration and saves the lua bytecode in a cache to be used on next load.
-This significantly speeds up nightfox's execution time. Changes to your configuration will be re-computed and cached
+Monrovia pre-computes the result of your configuration and saves the lua bytecode in a cache to be used on next load.
+This significantly speeds up monrovia's execution time. Changes to your configuration will be re-computed and cached
 automatically.
 
-By default nightfox writes the compiled results into the system's `cache` directory. On unix this is
-`$XDG_CACHE_HOME/nvim/nightfox` and on windows this is `%localappdata%\\Temp\\nvim\\nightfox`.
+By default monrovia writes the compiled results into the system's `cache` directory. On unix this is
+`$XDG_CACHE_HOME/nvim/monrovia` and on windows this is `%localappdata%\\Temp\\nvim\\monrovia`.
 
 ### Compile commands
 
 #### compile()
 
-Compile nightfox settings for each `style` and write compiled file to [compile_path].
+Compile monrovia settings for each `style` and write compiled file to [compile_path].
 
-#### :NightfoxCompile
+#### :MonroviaCompile
 
-Compile nightfox settings for each `style` and write compiled file to [compile_path].
+Compile monrovia settings for each `style` and write compiled file to [compile_path].
 
 [compile_path]: #compile_path-%7Bpath%7D
 
 ## Interactive
 
-Nightfox makes it easy to make changes to its config and see the results. For this nightfox exposes the command:
+Monrovia makes it easy to make changes to its config and see the results. For this monrovia exposes the command:
 
 ```
-NightfoxInteractive
+MonroviaInteractive
 ```
 
 This command will attach an autocmd to the current buffer that executes on `BufferWritePost`. The
-autocmd will clear nightfox's internal state and re-source it's config from the newly saved file. It will then reset the
+autocmd will clear monrovia's internal state and re-source it's config from the newly saved file. It will then reset the
 colorscheme.
 
 There are a few things to note:
 
 - This requires executing `luafile` on the current file. Any syntax errors will throw errors.
-- If you are using packer and have nightfox's config in a `config = function() end` block, this will not work as packer
+- If you are using packer and have monrovia's config in a `config = function() end` block, this will not work as packer
   would require to be re-compiled and the compiled file sourced.
 
-#### :NightfoxInteractive
+#### :MonroviaInteractive
 
-Enable Nightfox configuration reloading on buffer save.
+Enable Monrovia configuration reloading on buffer save.

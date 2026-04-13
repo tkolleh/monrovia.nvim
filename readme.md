@@ -520,28 +520,6 @@ There are a few things to note:
 - [nvim-ts-rainbow2](https://github.com/HiPhish/nvim-ts-rainbow2)
 - [which-key.nvim](https://github.com/folke/which-key.nvim)
 
-## Status lines
-
-### [Lualine]
-
-Lualine checks the value of `vim.g.colors_name` (set when using `:colorscheme` command) to determine the theme to load.
-Set your colorscheme before calling setup.
-
-```lua
-vim.cmd("colorscheme monrovia")
-require('lualine').setup({ ... })
-```
-
-### [Lightline]
-
-Lightline checks the value of `vim.g.lightline.colorscheme`. It does not depend on
-the value of the `:colorscheme` command, Please set it.
-
-```lua
-vim.cmd("colorscheme monrovia")
-vim.g.lightline = { colorscheme = "monrovia" } -- Or the name of colorscheme you use
-```
-
 ## Syntax highlight groups
 
 This section will help you determine what highlight group is being applied to a piece of syntax. These sections will

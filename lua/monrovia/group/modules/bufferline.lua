@@ -27,18 +27,21 @@ function M.get(spec, config, opts)
     BufferLineIndicatorSelected  = { fg = spec.diag.info, bg = spec.bg1 },
 
     -- Separators for slant style:
-    -- All separators use bg0 as foreground to blend with fill area
-    -- This creates a clean slant effect without visible separator lines
+    -- For proper slant rendering, fg = the color we want the diagonal to show
+    -- bg = the color of the current tab
+    -- 
+    -- When an active tab (bg1) is next to fill (bg0), we want the diagonal
+    -- to show bg0 on the outside, with bg=bg1 matching the active tab
     BufferLineSeparator          = { fg = spec.bg0, bg = spec.bg0 },
     BufferLineSeparatorVisible   = { fg = spec.bg0, bg = spec.bg0 },
-    BufferLineSeparatorSelected  = { fg = spec.bg0, bg = spec.bg1 },
+    BufferLineSeparatorSelected  = { fg = spec.bg0, bg = spec.bg0 },
 
     -- Tabs (when in tab mode)
     BufferLineTab                = { fg = spec.fg3, bg = spec.bg0 },
     BufferLineTabSelected        = { fg = spec.fg1, bg = spec.bg1, style = "bold" },
     BufferLineTabClose           = { fg = spec.diag.error, bg = spec.bg0 },
     BufferLineTabSeparator       = { fg = spec.bg0, bg = spec.bg0 },
-    BufferLineTabSeparatorSelected = { fg = spec.bg0, bg = spec.bg1 },
+    BufferLineTabSeparatorSelected = { fg = spec.bg0, bg = spec.bg0 },
 
     -- Close buttons
     BufferLineCloseButton        = { fg = spec.fg3, bg = spec.bg0 },

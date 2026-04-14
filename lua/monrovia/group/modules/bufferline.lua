@@ -27,20 +27,18 @@ function M.get(spec, config, opts)
     BufferLineIndicatorSelected  = { fg = spec.diag.info, bg = spec.bg1 },
 
     -- Separators for slant style:
-    -- The separator fg color draws the slant, bg blends with the next area
-    -- Background to visible: slant from bg0 to bg2
+    -- All separators use bg0 as foreground to blend with fill area
+    -- This creates a clean slant effect without visible separator lines
     BufferLineSeparator          = { fg = spec.bg0, bg = spec.bg0 },
-    -- Visible to selected: slant from bg0 to bg1
-    BufferLineSeparatorVisible   = { fg = spec.bg0, bg = spec.bg1 },
-    -- Selected to background: slant from bg1 to bg0
-    BufferLineSeparatorSelected  = { fg = spec.bg1, bg = spec.bg0 },
+    BufferLineSeparatorVisible   = { fg = spec.bg0, bg = spec.bg0 },
+    BufferLineSeparatorSelected  = { fg = spec.bg0, bg = spec.bg1 },
 
     -- Tabs (when in tab mode)
     BufferLineTab                = { fg = spec.fg3, bg = spec.bg0 },
-    BufferLineTabSelected        = { fg = spec.fg1, bg = spec.bg3, style = "bold" },
+    BufferLineTabSelected        = { fg = spec.fg1, bg = spec.bg1, style = "bold" },
     BufferLineTabClose           = { fg = spec.diag.error, bg = spec.bg0 },
     BufferLineTabSeparator       = { fg = spec.bg0, bg = spec.bg0 },
-    BufferLineTabSeparatorSelected = { fg = spec.bg3, bg = spec.bg0 },
+    BufferLineTabSeparatorSelected = { fg = spec.bg0, bg = spec.bg1 },
 
     -- Close buttons
     BufferLineCloseButton        = { fg = spec.fg3, bg = spec.bg0 },
@@ -48,32 +46,32 @@ function M.get(spec, config, opts)
     -- Modified indicator
     BufferLineModified           = { fg = spec.diag.warn, bg = spec.bg0 },
 
-    -- Diagnostics - follow the bg0/bg2/bg3 pattern
+    -- Diagnostics - follow the bg0/bg1 pattern
     BufferLineError              = { fg = spec.diag.error, bg = spec.bg0 },
-    BufferLineErrorVisible       = { fg = spec.diag.error, bg = spec.bg2 },
-    BufferLineErrorSelected      = { fg = spec.diag.error, bg = spec.bg3, style = "bold" },
+    BufferLineErrorVisible       = { fg = spec.diag.error, bg = spec.bg0 },
+    BufferLineErrorSelected      = { fg = spec.diag.error, bg = spec.bg1, style = "bold" },
 
     BufferLineWarning            = { fg = spec.diag.warn, bg = spec.bg0 },
-    BufferLineWarningVisible     = { fg = spec.diag.warn, bg = spec.bg2 },
-    BufferLineWarningSelected    = { fg = spec.diag.warn, bg = spec.bg3, style = "bold" },
+    BufferLineWarningVisible     = { fg = spec.diag.warn, bg = spec.bg0 },
+    BufferLineWarningSelected    = { fg = spec.diag.warn, bg = spec.bg1, style = "bold" },
 
     BufferLineInfo               = { fg = spec.diag.info, bg = spec.bg0 },
-    BufferLineInfoVisible        = { fg = spec.diag.info, bg = spec.bg2 },
-    BufferLineInfoSelected       = { fg = spec.diag.info, bg = spec.bg3, style = "bold" },
+    BufferLineInfoVisible        = { fg = spec.diag.info, bg = spec.bg0 },
+    BufferLineInfoSelected       = { fg = spec.diag.info, bg = spec.bg1, style = "bold" },
 
     BufferLineHint               = { fg = spec.diag.hint, bg = spec.bg0 },
-    BufferLineHintVisible        = { fg = spec.diag.hint, bg = spec.bg2 },
-    BufferLineHintSelected       = { fg = spec.diag.hint, bg = spec.bg3, style = "bold" },
+    BufferLineHintVisible        = { fg = spec.diag.hint, bg = spec.bg0 },
+    BufferLineHintSelected       = { fg = spec.diag.hint, bg = spec.bg1, style = "bold" },
 
     -- Duplicates
     BufferLineDuplicate          = { fg = spec.fg3, bg = spec.bg0, style = "italic" },
-    BufferLineDuplicateVisible   = { fg = spec.fg3, bg = spec.bg2, style = "italic" },
-    BufferLineDuplicateSelected  = { fg = spec.fg2, bg = spec.bg3, style = "italic" },
+    BufferLineDuplicateVisible   = { fg = spec.fg3, bg = spec.bg0, style = "italic" },
+    BufferLineDuplicateSelected  = { fg = spec.fg2, bg = spec.bg1, style = "italic" },
 
     -- Pick (when using buffer picking mode)
     BufferLinePick               = { fg = spec.diag.error, bg = spec.bg0, style = "bold" },
-    BufferLinePickVisible        = { fg = spec.diag.error, bg = spec.bg2, style = "bold" },
-    BufferLinePickSelected       = { fg = spec.diag.error, bg = spec.bg3, style = "bold" },
+    BufferLinePickVisible        = { fg = spec.diag.error, bg = spec.bg0, style = "bold" },
+    BufferLinePickSelected       = { fg = spec.diag.error, bg = spec.bg1, style = "bold" },
 
     -- Offset (for file explorer sidebars)
     BufferLineOffsetSeparator    = { bg = spec.bg0 },

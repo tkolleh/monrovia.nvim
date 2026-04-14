@@ -487,6 +487,7 @@ There are a few things to note:
 - [alpha-nvim](https://github.com/goolord/alpha-nvim)
 - [aerial.nvim](https://github.com/stevearc/aerial.nvim)
 - [barbar.nvim](https://github.com/romgrk/barbar.nvim)
+- [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [dashboard-nvim](https://github.com/glepnir/dashboard-nvim)

@@ -13,7 +13,7 @@ The following is a set of guidelines for contributing to this project.
   - If changes are made to palettes
   - If adding a new extra template add it to the list in `misc/extra.lua`
 - Run `make docgen` if changes are made to `usage.md`.
-  - Requires `pandoc` to be installed. If using `nix` there is a `devShell` in the `flake.nix`
+  - Requires `pandoc` to be installed
 - Run `make all` to execute the above make recipes.
 
 ## Recommendations

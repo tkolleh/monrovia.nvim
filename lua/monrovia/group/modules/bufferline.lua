@@ -13,27 +13,27 @@ function M.get(spec, config, opts)
     -- Background buffers (not visible) - darkest background
     BufferLineBackground         = { fg = spec.syntax.comment, bg = spec.bg0 },
 
-    -- Visible but not active buffers - slightly lighter than background
-    BufferLineBufferVisible      = { fg = spec.fg2, bg = spec.bg2 },
-    BufferLineCloseButtonVisible = { fg = spec.fg3, bg = spec.bg2 },
-    BufferLineModifiedVisible    = { fg = spec.diag.warn, bg = spec.bg2 },
-    BufferLineIndicatorVisible   = { fg = spec.diag.info, bg = spec.bg2 },
+    -- Visible but not active buffers - use bg0 (darker)
+    BufferLineBufferVisible      = { fg = spec.fg2, bg = spec.bg0 },
+    BufferLineCloseButtonVisible = { fg = spec.fg3, bg = spec.bg0 },
+    BufferLineModifiedVisible    = { fg = spec.diag.warn, bg = spec.bg0 },
+    BufferLineIndicatorVisible   = { fg = spec.diag.info, bg = spec.bg0 },
 
-    -- Selected/active buffer - use bg3 (lighter, distinctive)
-    -- This matches the cursor line background for visual consistency
-    BufferLineBufferSelected     = { fg = spec.fg1, bg = spec.bg3, style = "bold" },
-    BufferLineCloseButtonSelected = { fg = spec.diag.error, bg = spec.bg3 },
-    BufferLineModifiedSelected   = { fg = spec.diag.warn, bg = spec.bg3, style = "bold" },
-    BufferLineIndicatorSelected  = { fg = spec.diag.info, bg = spec.bg3 },
+    -- Selected/active buffer - use bg1 (main editor background color)
+    -- This makes the active tab blend with the editor content area
+    BufferLineBufferSelected     = { fg = spec.fg1, bg = spec.bg1, style = "bold" },
+    BufferLineCloseButtonSelected = { fg = spec.diag.error, bg = spec.bg1 },
+    BufferLineModifiedSelected   = { fg = spec.diag.warn, bg = spec.bg1, style = "bold" },
+    BufferLineIndicatorSelected  = { fg = spec.diag.info, bg = spec.bg1 },
 
     -- Separators for slant style:
     -- The separator fg color draws the slant, bg blends with the next area
-    -- Inactive separator: slant from bg0 to bg0 (invisible)
+    -- Background to visible: slant from bg0 to bg2
     BufferLineSeparator          = { fg = spec.bg0, bg = spec.bg0 },
-    -- Visible separator: slant from bg2 to bg0 (if next to inactive) or bg2
-    BufferLineSeparatorVisible   = { fg = spec.bg2, bg = spec.bg0 },
-    -- Selected separator: slant from bg3 to bg0 or bg2
-    BufferLineSeparatorSelected  = { fg = spec.bg3, bg = spec.bg0 },
+    -- Visible to selected: slant from bg0 to bg1
+    BufferLineSeparatorVisible   = { fg = spec.bg0, bg = spec.bg1 },
+    -- Selected to background: slant from bg1 to bg0
+    BufferLineSeparatorSelected  = { fg = spec.bg1, bg = spec.bg0 },
 
     -- Tabs (when in tab mode)
     BufferLineTab                = { fg = spec.fg3, bg = spec.bg0 },

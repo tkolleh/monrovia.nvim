@@ -38,12 +38,11 @@ local defaults = {
     search = false,
   },
   modules = {
+    bufferline = true,
     coc = {
       background = true,
     },
     diagnostic = {
-      -- This is linked to so much that is needs to be enabled. This is here primarily
-      -- for the extra options that can be added with modules
       enable = true,
       background = true,
     },
@@ -65,6 +64,7 @@ M.module_names = {
   "alpha",
   "aerial",
   "barbar",
+  "bufferline",
   "blink",
   "cmp",
   "coc",

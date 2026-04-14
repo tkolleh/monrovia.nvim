@@ -54,10 +54,10 @@ function M.check_deprecation(opts)
 
   if opts.groups then
     local collect = require("monrovia.lib.collect")
-    local foxes = require("monrovia.palette").foxes
+    local themes = require("monrovia.palette").themes
     local invalid = false
     for key, _ in pairs(opts.groups) do
-      if not collect.contains(foxes, key) and key ~= "all" then
+      if not collect.contains(themes, key) and key ~= "all" then
         invalid = true
         break
       end

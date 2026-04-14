@@ -23,8 +23,8 @@ function M.compile()
   require("monrovia.lib.log").clear()
 
   local compiler = require("monrovia.lib.compiler")
-  local foxes = require("monrovia.palette").foxes
-  for _, style in ipairs(foxes) do
+  local themes = require("monrovia.palette").themes
+  for _, style in ipairs(themes) do
     compiler.compile({ style = style })
   end
 end

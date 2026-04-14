@@ -94,8 +94,8 @@ function M.load(name)
     return spec
   else
     local result = {}
-    local foxes = require("monrovia.palette").foxes
-    for _, mod in ipairs(foxes) do
+    local themes = require("monrovia.palette").themes
+    for _, mod in ipairs(themes) do
       local palette = require("monrovia.palette").load(mod)
       local spec = palette.generate_spec(palette)
       spec = apply_ovr("all", spec, palette)

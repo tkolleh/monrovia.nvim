@@ -2,9 +2,50 @@
 
 local M = {}
 
-function M.get(spec, config, opts)
-  local c = spec.palette
+--- Dynamically applies per-filetype icon highlight groups for bufferline.
+--- bufferline generates group names like BufferLineDevIconTsx at runtime by
+--- querying nvim-web-devicons, so static highlight tables cannot cover them.
+--- This autocmd re-applies correct bg (active/inactive) + real icon fg color
+--- whenever a new buffer is entered or the colorscheme reloads.
+function M.setup(spec)
+  local augroup = vim.api.nvim_create_augroup("MonroviaBufferlineIcons", { clear = true })
 
+  vim.api.nvim_create_autocmd({ "ColorScheme", "BufEnter" }, {
+    group = augroup,
+    pattern = "*",
+    callback = function()
+      local ok, devicons = pcall(require, "nvim-web-devicons")
+      if not ok then
+        return
+      end
+
+      local seen = {}
+      for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        pcall(function()
+          local name = vim.api.nvim_buf_get_name(buf)
+          if name == "" then
+            return
+          end
+          local fname = vim.fn.fnamemodify(name, ":t")
+          local ext = vim.fn.fnamemodify(name, ":e")
+          local _, hl_name = devicons.get_icon(fname, ext, { default = true })
+          local _, icon_color = devicons.get_icon_color(fname, ext, { default = true })
+
+          if not hl_name or seen[hl_name] then
+            return
+          end
+          seen[hl_name] = true
+
+          vim.api.nvim_set_hl(0, "BufferLine" .. hl_name .. "Selected", { bg = spec.bg1, fg = icon_color })
+          vim.api.nvim_set_hl(0, "BufferLine" .. hl_name,               { bg = spec.bg0, fg = icon_color })
+          vim.api.nvim_set_hl(0, "BufferLine" .. hl_name .. "Inactive", { bg = spec.bg0, fg = icon_color })
+        end)
+      end
+    end,
+  })
+end
+
+function M.get(spec, config, opts)
   -- stylua: ignore
   return {
     -- Fill area (empty space in tabline)
@@ -79,9 +120,11 @@ function M.get(spec, config, opts)
     -- Offset (for file explorer sidebars)
     BufferLineOffsetSeparator    = { bg = spec.bg0 },
 
-    -- Dev icons - use palette colors
-    BufferLineDevIconDefault     = { fg = spec.fg2 },
-    BufferLineDevIconDefaultSelected = { fg = spec.fg1 },
+    -- Dev icons - fallback only; per-filetype colors are applied dynamically
+    -- by M.setup() via autocmd querying nvim-web-devicons at runtime.
+    BufferLineDevIconDefault         = { fg = spec.fg2, bg = spec.bg0 },
+    BufferLineDevIconDefaultSelected = { fg = spec.fg1, bg = spec.bg1 },
+    BufferLineDevIconDefaultInactive = { fg = spec.fg2, bg = spec.bg0 },
   }
 end
 

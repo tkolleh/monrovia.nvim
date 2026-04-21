@@ -30,7 +30,11 @@ function M.from(spec)
     opts.enable = opts.enable == nil and default_enable_value or opts.enable
 
     if opts.enable then
-      result = collect.deep_extend(result, require("monrovia.group.modules." .. name).get(spec, config, opts))
+      local mod = require("monrovia.group.modules." .. name)
+      result = collect.deep_extend(result, mod.get(spec, config, opts))
+      if mod.setup then
+        mod.setup(spec)
+      end
     end
   end
 

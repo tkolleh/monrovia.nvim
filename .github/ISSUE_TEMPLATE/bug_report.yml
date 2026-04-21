@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        **Before** reporting an issue, make sure to read the [documentation](https://github.com/edeneast/nightfox.nvim) and search [existing issues](https://github.com/edeneast/nightfox.nvim/issues). For usage questions such as ***How do I ...?*** please use the [discussion](https://github.com/edeneast/nightfox.nvim/discussions) section.
+        **Before** reporting an issue, make sure to read the [documentation](https://github.com/tkolleh/monrovia.nvim) and search [existing issues](https://github.com/tkolleh/monrovia.nvim/issues). For usage questions such as ***How do I ...?*** please use the [discussion](https://github.com/tkolleh/monrovia.nvim/discussions) section.
   - type: input
     attributes:
       label: "Neovim version (nvim -v)"
@@ -44,7 +44,7 @@ body:
   - type: textarea
     attributes:
       label: Repro
-      description: Minimal [`init.lua`](https://github.com/EdenEast/nightfox.nvim/blob/main/.github/minimal_init.lua) to reproduce this issue. Save as `repro.lua` and run with `nvim -u repro.lua`
+      description: Minimal [`init.lua`](https://github.com/tkolleh/monrovia.nvim/blob/main/.github/minimal_init.lua) to reproduce this issue. Save as `repro.lua` and run with `nvim -u repro.lua`
       value: |
         -- DO NOT change the paths and don't remove the colorscheme
         local root = vim.fn.fnamemodify("./.repro", ":p")
@@ -64,9 +64,9 @@ body:
         -- install plugins
         local plugins = {
           {
-            "EdenEast/nightfox.nvim",
+            "tkolleh/monrovia.nvim",
             config = function()
-              require("nightfox").setup({
+              require("monrovia").setup({
                 -- setup here ...
               })
             end,
@@ -77,7 +77,7 @@ body:
           root = root .. "/plugins",
         })
 
-        vim.cmd.colorscheme("nightfox")
+        vim.cmd.colorscheme("monrovia_night")
       render: Lua
     validations:
       required: false

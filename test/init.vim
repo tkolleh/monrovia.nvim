@@ -4,7 +4,7 @@ try
 	call plug#end()
 
 	lua require("monrovia").setup {}
-	colorscheme monrovia
+	colorscheme monrovia_night
 catch
 	echo v:exception
 	1cq

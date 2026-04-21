@@ -6,8 +6,8 @@ function M.generate(spec, _)
   local content = [[
 [metadata]
 name = "${palette.meta.name}"
-author = "EdenEast"
-origin_url = "https://github.com/EdenEast/nightfox.nvim"
+author = "tkolleh"
+origin_url = "https://github.com/tkolleh/monrovia.nvim"
 
 [colors]
 foreground = "${fg1}"

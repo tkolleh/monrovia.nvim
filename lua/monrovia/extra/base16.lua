@@ -30,7 +30,7 @@ function M.generate(spec, _)
   }
   local content = [[
 scheme: "${meta.name}"
-author: "EdenEast"
+author: "tkolleh"
 base00: "${black}"
 base01: "${bg2}"
 base02: "${bg3}"

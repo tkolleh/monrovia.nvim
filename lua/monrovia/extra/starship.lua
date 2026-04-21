@@ -7,7 +7,7 @@ function M.generate(spec, _)
 # [metadata]
 # name = "${palette.meta.name}"
 # author = "wjohnsto"
-# origin_url = "https://github.com/EdenEast/nightfox.nvim"
+# origin_url = "https://github.com/tkolleh/monrovia.nvim"
 
 "$schema" = "https://starship.rs/config-schema.json"
 

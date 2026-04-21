@@ -24,7 +24,7 @@ function M.write(...)
 end
 
 function M.flush()
-  M.write("See ", { "https://github.com/EdenEast/monrovia.nvim ", "Title" }, "for more information.")
+  M.write("See ", { "https://github.com/tkolleh/monrovia.nvim ", "Title" }, "for more information.")
   vim.api.nvim_echo(M._list, true, {})
 end
 

@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "lua/nightfox/extra/**.lua"
+      - "lua/monrovia/extra/**.lua"
 
 jobs:
   docs:

@@ -7,10 +7,13 @@ local M = {}
 --- querying nvim-web-devicons, so static highlight tables cannot cover them.
 --- This autocmd re-applies correct bg (active/inactive/visible) + real icon fg color
 --- whenever a new buffer is entered or the colorscheme reloads.
-function M.setup(spec)
-  local C = require("monrovia.lib.color")
-  local bg_visible = C(spec.bg0):blend(C(spec.bg1), 0.5):to_css()
-
+---
+--- NOTE: This must be registered at *load* time, not compile time. The compiled
+--- colorscheme blob never re-runs the group builders, so the spec is resolved
+--- fresh from `vim.g.colors_name` on each event rather than captured here. One
+--- registration therefore serves every variant correctly across day/night switches.
+function M.setup()
+  -- `clear = true` makes re-registration idempotent (load may run more than once).
   local augroup = vim.api.nvim_create_augroup("MonroviaBufferlineIcons", { clear = true })
 
   vim.api.nvim_create_autocmd({ "ColorScheme", "BufEnter" }, {
@@ -22,28 +25,39 @@ function M.setup(spec)
         return
       end
 
+      -- Resolve the spec for the active variant at event time. Falls back to the
+      -- configured default if `colors_name` is not one of monrovia's variants.
+      local name = vim.g.colors_name or require("monrovia.config").fox
+      local spec_ok, spec = pcall(require("monrovia.spec").load, name)
+      if not spec_ok or not spec or not spec.bg0 then
+        return
+      end
+
+      local C = require("monrovia.lib.color")
+      local bg_visible = C(spec.bg0):blend(C(spec.bg1), 0.5):to_css()
+
       -- ColorScheme must repaint every known icon type; BufEnter only needs the entering buffer.
       local bufs = ev.event == "ColorScheme" and vim.api.nvim_list_bufs() or { ev.buf }
 
       for _, buf in ipairs(bufs) do
         pcall(function()
-          local name = vim.api.nvim_buf_get_name(buf)
-          if name == "" then
+          local bname = vim.api.nvim_buf_get_name(buf)
+          if bname == "" then
             return
           end
-          local fname = vim.fn.fnamemodify(name, ":t")
-          local ext   = vim.fn.fnamemodify(name, ":e")
-          local _, hl_name    = devicons.get_icon(fname, ext, { default = true })
+          local fname = vim.fn.fnamemodify(bname, ":t")
+          local ext = vim.fn.fnamemodify(bname, ":e")
+          local _, hl_name = devicons.get_icon(fname, ext, { default = true })
           local _, icon_color = devicons.get_icon_color(fname, ext, { default = true })
 
           if not hl_name then
             return
           end
 
-          vim.api.nvim_set_hl(0, "BufferLine" .. hl_name .. "Selected", { bg = spec.bg1,   fg = icon_color })
-          vim.api.nvim_set_hl(0, "BufferLine" .. hl_name,               { bg = spec.bg0,   fg = icon_color })
-          vim.api.nvim_set_hl(0, "BufferLine" .. hl_name .. "Inactive", { bg = spec.bg0,   fg = icon_color })
-          vim.api.nvim_set_hl(0, "BufferLine" .. hl_name .. "Visible",  { bg = bg_visible, fg = icon_color })
+          vim.api.nvim_set_hl(0, "BufferLine" .. hl_name .. "Selected", { bg = spec.bg1, fg = icon_color })
+          vim.api.nvim_set_hl(0, "BufferLine" .. hl_name, { bg = spec.bg0, fg = icon_color })
+          vim.api.nvim_set_hl(0, "BufferLine" .. hl_name .. "Inactive", { bg = spec.bg0, fg = icon_color })
+          vim.api.nvim_set_hl(0, "BufferLine" .. hl_name .. "Visible", { bg = bg_visible, fg = icon_color })
         end)
       end
     end,

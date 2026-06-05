@@ -38,6 +38,27 @@ end
 local lock = false
 local did_setup = false
 
+-- Register runtime-only module hooks (autocmds, etc.). Unlike the static
+-- highlight tables, these cannot live in the compiled blob, so they must be
+-- (re-)registered on every load. Module setup functions are idempotent.
+local function register_runtime()
+  local cfg = require("monrovia.config")
+  local opts = cfg.options
+  local default_enable = opts.module_default
+  for _, name in ipairs(cfg.module_names) do
+    local value = opts.modules[name]
+    local enabled = type(value) == "boolean" and value
+      or type(value) == "table" and (value.enable == nil and default_enable or value.enable)
+      or default_enable
+    if enabled then
+      local ok, mod = pcall(require, "monrovia.group.modules." .. name)
+      if ok and type(mod.setup) == "function" then
+        pcall(mod.setup)
+      end
+    end
+  end
+end
+
 function M.load(opts)
   if lock then
     return
@@ -60,6 +81,9 @@ function M.load(opts)
 
   ---@diagnostic disable-next-line: need-check-nil
   f()
+
+  -- Register runtime hooks after the compiled blob has set its highlight groups.
+  register_runtime()
 
   lock = false
 end

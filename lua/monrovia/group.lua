@@ -32,9 +32,10 @@ function M.from(spec)
     if opts.enable then
       local mod = require("monrovia.group.modules." .. name)
       result = collect.deep_extend(result, mod.get(spec, config, opts))
-      if mod.setup then
-        mod.setup(spec)
-      end
+      -- NOTE: mod.setup (runtime autocmds) is intentionally NOT called here.
+      -- group.from runs only during compilation, whose output is cached, so any
+      -- autocmd registered here would not exist after a cached-blob load. Runtime
+      -- setup is invoked from monrovia.load instead. See modules/bufferline.lua.
     end
   end
 

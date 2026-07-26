@@ -16,15 +16,15 @@ local palette = {
   magenta = Shade.new("#6e33ce", 0.15, -0.15, true),
   cyan    = Shade.new("#287980", 0.15, -0.15, true),
   white   = Shade.new("#f2e9e1", 0.15, -0.15, true),
-  orange  = Shade.new("#955f61", 0.15, -0.15, true),
+  orange  = Shade.new("#8b4d1d", 0.15, -0.15, true),
   pink    = Shade.new("#a440b5", 0.15, -0.15, true),
 
-  comment = "#837a72",
+  comment = "#524b44",
 
   bg0     = "#e4dcd4", -- Dark bg (status line and float)
   bg1     = "#f6f2ee", -- Default bg
-  bg2     = "#dbd1dd", -- Lighter bg (colorcolm folds)
-  bg3     = "#d3c7bb", -- Lighter bg (cursor line)
+  bg2     = "#e0d5c8", -- Lighter bg (colorcolm folds)
+  bg3     = "#ebe3da", -- Subtle warm cursor line (near bg1)
   bg4     = "#aab0ad", -- Conceal, border fg
 
   fg0     = "#302b5d", -- Lighter fg

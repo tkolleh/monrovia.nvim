@@ -16,24 +16,24 @@ local palette = {
   magenta = Shade.new("#b48ead", "#c895bf", "#9d7495"),
   cyan    = Shade.new("#88c0d0", "#93ccdc", "#69a7ba"),
   white   = Shade.new("#e5e9f0", "#e7ecf4", "#bbc3d4"),
-  orange  = Shade.new("#c9826b", "#d89079", "#b46950"),
+  orange  = Shade.new("#d8a594", "#e3beb2", "#c87f67"),
   pink    = Shade.new("#bf88bc", "#d092ce", "#a96ca5"),
 
-  comment = "#60728a",
+  comment = "#b1bbc8",
 
   bg0     = "#232831", -- Dark bg (status line and float)
   bg1     = "#2e3440", -- Default bg
   bg2     = "#39404f", -- Lighter bg (colorcolm folds)
-  bg3     = "#444c5e", -- Lighter bg (cursor line)
+  bg3     = "#3c4353", -- Subtle nord cursor line (near bg1)
   bg4     = "#5a657d", -- Conceal, border fg
 
   fg0     = "#c7cdd9", -- Lighter fg
   fg1     = "#cdcecf", -- Default fg
   fg2     = "#abb1bb", -- Darker fg (status line)
-  fg3     = "#7e8188", -- Darker fg (line numbers, fold colums)
+  fg3     = "#aeb0b4", -- Darker fg (line numbers, fold colums)
 
   sel0    = "#3e4a5b", -- Popup bg, visual selection bg
-  sel1    = "#4f6074", -- Popup sel bg, search bg
+  sel1    = "#3a4756", -- Popup sel bg, search bg
 }
 
 local function generate_spec(pal)

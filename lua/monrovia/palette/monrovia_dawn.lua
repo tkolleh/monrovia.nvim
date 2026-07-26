@@ -9,28 +9,28 @@ local meta = {
 -- stylua: ignore
 local palette = {
   black   = Shade.new("#575279", "#5f5695", "#504c6b", true),
-  red     = Shade.new("#b4637a", "#c26d85", "#a5576d", true),
-  green   = Shade.new("#618774", "#629f81", "#597668", true),
-  yellow  = Shade.new("#ea9d34", "#eea846", "#dd9024", true),
+  red     = Shade.new("#a85169", "#b4647a", "#8c4458", true),
+  green   = Shade.new("#547565", "#618774", "#435d51", true),
+  yellow  = Shade.new("#9e6310", "#ba7413", "#794c0c", true),
   blue    = Shade.new("#286983", "#2d81a3", "#295e73", true),
-  magenta = Shade.new("#907aa9", "#9a80b9", "#816b9a", true),
-  cyan    = Shade.new("#56949f", "#5ca7b4", "#50848c", true),
+  magenta = Shade.new("#7b6298", "#8b73a5", "#67527f", true),
+  cyan    = Shade.new("#44757e", "#4f8892", "#365d63", true),
   white   = Shade.new("#e5e9f0", "#e6ebf3", "#c8cfde", true),
-  orange  = Shade.new("#d7827e", "#de8c88", "#ca6e69", true),
-  pink    = Shade.new("#d685af", "#de8db7", "#c9709e", true),
+  orange  = Shade.new("#98591b", "#b26920", "#754515", true),
+  pink    = Shade.new("#b73e7c", "#c4508c", "#983468", true),
 
-  comment = "#9893a5",
+  comment = "#5d4f64",
 
   bg0     = "#ebe5df", -- Dark bg (status line and float)
   bg1     = "#faf4ed", -- Default bg
-  bg2     = "#ebe0df", -- Lighter bg (colorcolm folds)
-  bg3     = "#ebdfe4", -- Lighter bg (cursor line)
+  bg2     = "#e6ded6", -- Warm paper folds (dawn ramp ~30°)
+  bg3     = "#f2ebe3", -- Subtle warm cursor line (near bg1)
   bg4     = "#bdbfc9", -- Conceal, border fg
 
   fg0     = "#4c4769", -- Lighter fg
   fg1     = "#575279", -- Default fg
   fg2     = "#625c87", -- Darker fg (status line)
-  fg3     = "#a8a3b3", -- Darker fg (line numbers, fold colums)
+  fg3     = "#6a6378", -- Darker fg (line numbers, fold colums)
 
   sel0    = "#d0d8d8", -- Popup bg, visual selection bg
   sel1    = "#b8cece", -- Popup sel bg, search bg

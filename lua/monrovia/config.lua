@@ -99,6 +99,7 @@ M.module_names = {
   "sneak",
   "symbol_outline",
   "rainbow-delimiters",
+  "render_markdown",
   "telescope",
   "treesitter",
   "tsrainbow",

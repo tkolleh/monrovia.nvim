@@ -16,7 +16,7 @@ function M.get(spec, config, opts)
     LspCodeLensSeparator        = { fg = spec.fg3 }, -- Used to color the separator between two or more code lens
     LspSignatureActiveParameter = { fg = spec.sel1 }, -- Used to highlight the active parameter in the signature help
 
-    LspInlayHint = { fg = syn.comment, bg = opts.background and spec.bg2 or "NONE" },
+    LspInlayHint = { fg = syn.comment, bg = opts.background and (spec.inlay_hint_bg or spec.bg2) or "NONE" },
   }
 end
 

@@ -5,6 +5,7 @@ function M.get(spec, config)
   local inactive = config.dim_inactive
   local inv = config.inverse
   local fg_search = spec.palette.meta.light and "#FFFFFF" or "#000000"
+  local spell = spec.spell or spec.diag
 
  -- stylua: ignore
  return {
@@ -51,13 +52,13 @@ function M.get(spec, config)
     Question        = { link = "MoreMsg" }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine    = { link = "CursorLine" }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search          = inv.search and { style = "reverse" } or { fg = spec.fg1, bg = spec.sel1 }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-    IncSearch       = inv.search and { style = "reverse" } or { fg = spec.bg1, bg = spec.diag.hint }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    IncSearch       = inv.search and { style = "reverse" } or { fg = spec.fg1, bg = spec.search_bg or spec.diag.hint }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     CurSearch       = { link = "IncSearch"}, -- Search result under cursor (available since neovim >0.7.0 (https://github.com/neovim/neovim/commit/b16afe4d556af7c3e86b311cfffd1c68a5eed71f)).
     SpecialKey      = { link = "NonText" }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
-    SpellBad        = { sp = spec.diag.error, style = "undercurl" }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
-    SpellCap        = { sp = spec.diag.warn, style = "undercurl" }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-    SpellLocal      = { sp = spec.diag.info, style = "undercurl" }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-    SpellRare       = { sp = spec.diag.info, style = "undercurl" }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
+    SpellBad        = { sp = spell.error, style = "undercurl" }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
+    SpellCap        = { sp = spell.warn, style = "undercurl" }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+    SpellLocal      = { sp = spell.info, style = "undercurl" }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
+    SpellRare       = { sp = spell.info, style = "undercurl" }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
     StatusLine      = { fg = spec.fg2, bg = spec.bg0 }, -- status line of current window
     StatusLineNC    = { fg = spec.fg3, bg = spec.bg0 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 

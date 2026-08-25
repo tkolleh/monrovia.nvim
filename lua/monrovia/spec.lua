@@ -20,6 +20,9 @@ local template = require("monrovia.util.template")
 ---@field diag_bg SpecDiagnosticBg
 ---@field diff SpecDiff
 ---@field git SpecGit
+---@field search_bg string?
+---@field spell SpecDiagnostic?
+---@field inlay_hint_bg string?
 
 ---@class SpecSyntax
 ---@field bracket string

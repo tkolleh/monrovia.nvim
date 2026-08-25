@@ -79,11 +79,11 @@ local function generate_spec(pal)
   }
 
   spec.diag = {
-    error = pal.red.base,
-    warn  = pal.yellow.base,
-    info  = pal.blue.base,
-    hint  = pal.green.base,
-    ok    = pal.green.base,
+    error = pal.red:harsh(),
+    warn  = pal.yellow:harsh(),
+    info  = pal.blue:harsh(),
+    hint  = pal.green:harsh(),
+    ok    = pal.green:harsh(),
   }
 
   spec.diag_bg = {
@@ -92,6 +92,23 @@ local function generate_spec(pal)
     info  = C(spec.bg1):blend(C(spec.diag.info), 0.3):to_css(),
     hint  = C(spec.bg1):blend(C(spec.diag.hint), 0.3):to_css(),
     ok    = C(spec.bg1):blend(C(spec.diag.ok), 0.3):to_css(),
+  }
+
+  -- Decoupled from spec.diag so search-highlight brightness can be tuned
+  -- independently of diagnostic colors.
+  spec.search_bg = C(spec.bg1):blend(C(pal.green.base), 0.2):to_css()
+
+  -- Fainter than bg2 so LSP inlay hints (type hints, zk note-title previews,
+  -- etc.) read as a subtle wash instead of a solid tinted block.
+  spec.inlay_hint_bg = C(spec.bg1):blend(C(spec.bg2), 0.3):to_css()
+
+  -- Decoupled from spec.diag; mixed 0.7 toward bg1 for a lighter squiggle
+  -- (undercurl sp has no text-fill AA obligation, unlike diag/diag_bg).
+  spec.spell = {
+    error = "#b2605d",
+    warn  = "#b6784b",
+    info  = "#6c6eac",
+    hint  = "#68846d",
   }
 
   spec.diff = {

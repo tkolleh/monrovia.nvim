@@ -6,23 +6,23 @@ function M.get(spec, config, opts)
 
   -- stylua: ignore
   return {
-    DiagnosticError            = { fg = d.error },
-    DiagnosticWarn             = { fg = d.warn },
-    DiagnosticInfo             = { fg = d.info },
-    DiagnosticHint             = { fg = d.hint },
-    DiagnosticOk               = { fg = d.ok },
+    DiagnosticError            = { fg = spec.fg1 },
+    DiagnosticWarn             = { fg = spec.fg1 },
+    DiagnosticInfo             = { fg = spec.fg1 },
+    DiagnosticHint             = { fg = spec.fg1 },
+    DiagnosticOk               = { fg = spec.fg1 },
 
-    DiagnosticSignError        = { link = "DiagnosticError" },
-    DiagnosticSignWarn         = { link = "DiagnosticWarn" },
-    DiagnosticSignInfo         = { link = "DiagnosticInfo" },
-    DiagnosticSignHint         = { link = "DiagnosticHint" },
-    DiagnosticSignOk           = { link = "DiagnosticOk" },
+    DiagnosticSignError        = { fg = d.error },
+    DiagnosticSignWarn         = { fg = d.warn },
+    DiagnosticSignInfo         = { fg = d.info },
+    DiagnosticSignHint         = { fg = d.hint },
+    DiagnosticSignOk           = { fg = d.ok },
 
-    DiagnosticVirtualTextError = { fg = d.error, bg = opts.background and dbg.error or "NONE" },
-    DiagnosticVirtualTextWarn  = { fg = d.warn, bg = opts.background and dbg.warn or "NONE" },
-    DiagnosticVirtualTextInfo  = { fg = d.info, bg = opts.background and dbg.info or "NONE" },
-    DiagnosticVirtualTextHint  = { fg = d.hint, bg = opts.background and dbg.hint or "NONE" },
-    DiagnosticVirtualTextOk    = { fg = d.ok, bg = opts.background and dbg.ok or "NONE" },
+    DiagnosticVirtualTextError = { fg = spec.fg1, bg = dbg.error },
+    DiagnosticVirtualTextWarn  = { fg = spec.fg1, bg = dbg.warn },
+    DiagnosticVirtualTextInfo  = { fg = spec.fg1, bg = dbg.info },
+    DiagnosticVirtualTextHint  = { fg = spec.fg1, bg = dbg.hint },
+    DiagnosticVirtualTextOk    = { fg = spec.fg1, bg = dbg.ok },
 
     DiagnosticUnderlineError   = { style = "undercurl", sp = d.error },
     DiagnosticUnderlineWarn    = { style = "undercurl", sp = d.warn },

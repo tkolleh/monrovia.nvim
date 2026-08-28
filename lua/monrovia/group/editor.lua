@@ -32,8 +32,9 @@ function M.get(spec, config)
     SignColumn      = { fg = spec.fg3 }, -- column where |signs| are displayed
     SignColumnSB    = { link = "SignColumn" }, -- column where |signs| are displayed
     Substitute      = { fg = spec.bg1, bg = spec.diag.error }, -- |:substitute| replacement text highlighting
-    LineNr          = { fg = spec.fg3 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNr          = { fg = spec.dim.statuscolumn }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set. Dimmed so the cursor line (CursorLineNr) stands out.
     CursorLineNr    = { fg = spec.diag.warn, style = "bold" }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    MiniStatuscolumnWrapDim = { link = "LineNr" }, -- mini.statuscolumn wrap-line glyph on non-cursor lines; same dim tone as LineNr (MiniStatuscolumnSep also inherits it via its own default link to LineNr)
     MatchParen      = { fg = spec.diag.warn, style = inv.match_paren and "reverse,bold" or "bold" }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg         = { fg = spec.diag.warn, style = "bold" }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- NOTE: This was commented out as there is an issue with seting this highlight group see issue #98

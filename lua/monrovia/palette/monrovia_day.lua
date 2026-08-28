@@ -94,6 +94,15 @@ local function generate_spec(pal)
     ok    = C(spec.bg1):blend(C(spec.diag.ok), 0.3):to_css(),
   }
 
+  -- Dimmed gutter text (e.g. statuscolumn wrap indicator) on non-cursor lines.
+  -- 0.38 favors visible dimming over strict accessibility: day/dawn/dusk land
+  -- below the 3:1 floor for dimmed text (user-accepted trade-off) so the
+  -- gutter reads as clearly receded; night/midnight/sunset/twilight still
+  -- clear 3:1. Drop to ~0.25 to keep all seven above 3:1 if that matters more.
+  spec.dim = {
+    statuscolumn = C(spec.fg3):blend(C(spec.bg1), 0.38):to_css(),
+  }
+
   -- Decoupled from spec.diag so search-highlight brightness can be tuned
   -- independently of diagnostic colors.
   spec.search_bg = C(spec.bg1):blend(C(pal.green.base), 0.2):to_css()

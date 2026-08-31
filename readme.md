@@ -19,8 +19,6 @@
 ## ⚠️ Breaking Changes in v4.0.0
 
 - **Neovim 0.10+ required**: Dropped support for Vim and Neovim < 0.10
-- **Renamed to monrovia.nvim**: New plugin name (hardfork of nightfox.nvim)
-- **API Modernization**: Uses `vim.uv`, `nvim_get_hl`, and Lua `load`
 - **Run `:MonroviaCompile`**: Cache regeneration required after upgrade
 
 ## Features

@@ -40,15 +40,15 @@
 Download with your favorite package manager.
 
 ```lua
-{ "monrovia.nvim" } -- lazy
+{ "tkolleh/monrovia.nvim" } -- lazy.nvim
 ```
 
 ```lua
-use "monrovia.nvim" -- Packer
+vim.pack.add({ "https://github.com/tkolleh/monrovia.nvim" }) -- vim.pack (builtin, Neovim 0.12+)
 ```
 
-```vim
-Plug 'monrovia.nvim' " Vim-Plug
+```lua
+MiniDeps.add("tkolleh/monrovia.nvim") -- mini.deps
 ```
 
 ## Usage
@@ -129,8 +129,7 @@ require('monrovia').setup({
 })
 ```
 
-To see a detailed explanation of monrovia's config settings consult either the builtin help `:help monrovia` or
-[Usage](./usage.md).
+To see a detailed explanation of monrovia's config settings consult the builtin help `:help monrovia`.
 
 ### Modules
 
@@ -139,7 +138,7 @@ either set the module to `true` or if the module has additional configuration in
 
 By default modules will be enabled. To change this behaviour change `options.module_default` to `false`.
 
-To see a list of modules check, see [Usage](./usage.md#module) or `:help` for more information.
+To see a list of modules see [Supported Plugins](#supported-plugins) or `:help monrovia-modules` for more information.
 
 ### Customize palettes and groups
 
@@ -251,7 +250,7 @@ groups and have a comment describing them. Another file to note is [editor.lua] 
 for how vim looks (background, cursorline, tabline, etc...). To get the highlight group under your cursor see
 [here](#syntax-highlight-groups) for more information
 
-To get more information check out [Usage](./usage.md#configuration) or the help file `:help monrovia` for more detailed information.
+To get more information check out the help file `:help monrovia` for more detailed information.
 
 [editor.lua]: https://github.com/tkolleh/monrovia.nvim/blob/main/lua/monrovia/group/editor.lua
 [syntax.lua]: https://github.com/tkolleh/monrovia.nvim/blob/main/lua/monrovia/group/syntax.lua
@@ -306,7 +305,7 @@ You can get the palettes used by each colorscheme:
 local palettes = require('monrovia.palette').load()
 
 -- Returns the palette of the specified colorscheme
-local palette = require('monrovia.palette').load("monrovia")
+local palette = require('monrovia.palette').load("monrovia_night")
 
 print(vim.inspect(palette.red))
 -- {
@@ -316,7 +315,7 @@ print(vim.inspect(palette.red))
 -- }
 ```
 
-See [Usage](./usage.md#palette) for more information on palettes.
+See `:help monrovia-palette` for more information on palettes.
 
 ### Specs
 
@@ -324,10 +323,10 @@ You can get the spec used by each colorscheme:
 
 ```lua
 -- Returns a table with each colorscheme and the spec associated with it
-local specs require('monrovia.spec').load()
+local specs = require('monrovia.spec').load()
 
 -- Returns the spec of the specified colorscheme
-local spec = require('monrovia.spec').load("monrovia")
+local spec = require('monrovia.spec').load("monrovia_night")
 
 print(vim.inspect(spec.git))
 -- {
@@ -337,7 +336,7 @@ print(vim.inspect(spec.git))
 -- }
 ```
 
-See [Usage](./usage.md#spec) for more information on specs.
+See `:help monrovia-spec` for more information on specs.
 
 ### Color lib
 
@@ -368,7 +367,7 @@ print(vim.inspect(alt_bg:to_hsv()))
 ```
 
 There are a lot of useful functions to manipulate and work with colors in different color spaces.
-See [Usage](./usage.md#color) for more information on `Color`.
+See `:help monrovia-color` for more information on `Color`.
 
 ## Colorblind
 
@@ -487,8 +486,10 @@ There are a few things to note:
 - [alpha-nvim](https://github.com/goolord/alpha-nvim)
 - [aerial.nvim](https://github.com/stevearc/aerial.nvim)
 - [barbar.nvim](https://github.com/romgrk/barbar.nvim)
+- [blink.cmp](https://github.com/saghen/blink.cmp)
 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [coc.nvim](https://github.com/neoclide/coc.nvim)
 - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
 - [fern.vim](https://github.com/lambdalisue/fern.vim)
@@ -515,6 +516,8 @@ There are a few things to note:
 - [vim-signify](https://github.com/mhinz/vim-signify)
 - [vim-sneak](https://github.com/justinmk/vim-sneak)
 - [rainbow-delimiters](https://github.com/hiphish/rainbow-delimiters.nvim)
+- [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
+- native LSP (`vim.lsp`, including semantic tokens)
 - [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)

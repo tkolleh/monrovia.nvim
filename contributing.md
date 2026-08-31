@@ -12,8 +12,7 @@ The following is a set of guidelines for contributing to this project.
 - Run `make extragen` to update `extra`'s folder with changes.
   - If changes are made to palettes
   - If adding a new extra template add it to the list in `misc/extra.lua`
-- Run `make docgen` if changes are made to `usage.md`.
-  - Requires `pandoc` to be installed
+- Run `make docgen` if changes are made to `doc/monrovia.txt` to regenerate `doc/tags`.
 - Run `make all` to execute the above make recipes.
 
 ## Recommendations

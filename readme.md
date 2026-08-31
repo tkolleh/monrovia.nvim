@@ -292,27 +292,6 @@ require("monrovia").setup({
 
 Monrovia exposes some Api's and utility classes that let you fetch data from monrovia.
 
-### Palettes
-
-You can get the palettes used by each colorscheme:
-
-```lua
--- Returns a table with each colorscheme and the palette associated with it
-local palettes = require('monrovia.palette').load()
-
--- Returns the palette of the specified colorscheme
-local palette = require('monrovia.palette').load("monrovia_night")
-
-print(vim.inspect(palette.red))
--- {
---   base = "#c94f6d",
---   bright = "#d16983",
---   dim = "#ab435d",
--- }
-```
-
-See `:help monrovia-palette` for more information on palettes.
-
 ### Specs
 
 You can get the spec used by each colorscheme:
@@ -365,76 +344,6 @@ print(vim.inspect(alt_bg:to_hsv()))
 There are a lot of useful functions to manipulate and work with colors in different color spaces.
 See `:help monrovia-color` for more information on `Color`.
 
-## Colorblind
-
-For individuals with `color vision deficiency` (cvd), monrovia has implemented a `colorblind` mode to help enhance color
-contrast. This can be enabled with this option `colorblind.enable`.
-
-<details>
-<summary>Understanding cvd</summary>
-
-There are three types of cvd:
-
-- Protan (Red / L cones)
-- Deutan (Green / M cones)
-- Tritan (Blue / S cones)
-
-These are referred to as `protanomaly`, `deuteranomaly`, and `tritanomaly` for individuals that have all three cones
-(trichromats) but one is weak (anomalous trichromacy).
-
-These can also be referred to as `protanopia`, `deuteranopia`, and `tritanopia`. This is for individuals that only have
-two cones (dichromats or dichromacy).
-
-| Cone      | Type   | Weak (trichromacy) | Missing (Dichromacy) |
-| --------- | ------ | ------------------ | -------------------- |
-| L / Red   | Protan | Protanomaly        | Protanopia           |
-| M / Green | Deutan | Deuteranomaly      | Deuteranopia         |
-| S / Blue  | Tritan | Tritanomaly        | Tritanopia           |
-
-</details>
-
-### Configuring cvd
-
-Monrovia needs to simulate your cvd in order to shift colors correctly. This is done by setting your cvd type's severity
-level. Severity is a value between `0` and `1` where `1` is full dichromacy. You can also have multiple kinds of cvd
-configured at a time. Here is a full example:
-
-```lua
-require("monrovia").setup({
-  options = {
-    colorblind = {
-      enable = true,
-      severity = {
-        protan = 0.3,
-        deutan = 0.6,
-      },
-    },
-  },
-})
-```
-
-If you are looking for a way to self evaluate what severity factor to use, check out [daltonlens's][cb-self-eval] self
-evaluation article with interactive self evaluation Ishihasa plates.
-
-Another method would be to use the option `colorblind.simulate_only` option along with monrovia's
-[interactive](#interactive) mode. While monrovia is simulating cvd set a severity to 1. Now decrease the severity
-incrementally until you cannot perceive a difference in the change of colors.
-
-[cb-self-eval]: https://daltonlens.org/evaluating-cvd-simulation/#Generating-Ishihara-like-plates-for-self-evaluation
-
-### How does this work?
-
-This is accomplished by applying an algorithm called `Daltonization`. The process follows these steps:
-
-1. Simulate what a person with cvd would see
-1. Calculate the difference between original vs. simulated
-1. Shift the difference towards the visible spectrum of the cvd individual
-1. Correct original color by adding it to the corrected difference
-
-You can see the simulated colors instead of the corrected colors by setting the option `colorblind.simulate_only`.
-
-![cvd-example](https://user-images.githubusercontent.com/2746374/210025850-9a84b142-e989-4efa-9b55-5f7312013da3.gif)
-
 ## Compile
 
 Monrovia is a highly customizable and configurable colorscheme. This does however come at the cost of complexity and
@@ -468,8 +377,6 @@ MonroviaInteractive
 This command will attach an autocmd to the current buffer that executes on `BufferWritePost`. The
 autocmd will clear monrovia's internal state and re-source it's config from the newly saved file. It will then reset the
 colorscheme.
-
-![demo](https://user-images.githubusercontent.com/2746374/211108157-b5221ea4-9369-453d-9c27-4a71ac161a55.gif)
 
 There are a few things to note:
 
@@ -519,46 +426,6 @@ There are a few things to note:
 - [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
 - [nvim-ts-rainbow2](https://github.com/HiPhish/nvim-ts-rainbow2)
 - [which-key.nvim](https://github.com/folke/which-key.nvim)
-
-## Syntax highlight groups
-
-This section will help you determine what highlight group is being applied to a piece of syntax. These sections will
-output the highlight group for the value under the cursor.
-
-#### Treesitter highlighting
-
-If treesitter is the highlighting method for the language in question you can use the command:
-`:Inspect`.
-
-#### Vim highlighting
-
-Add this vimscript function to your configuration.
-
-<details>
-<summary>vimscript highlight function</summary>
-
-```vim
-" plugin/syntax.vim
-
-" Output the highlight group under the cursor
-"
-" This function will output the entire stack of hightlight groups being applied. The stack is
-" outputted in the correct order from top to bottom. Vim will walk through the stack from top to
-" bottom and apply the first defined highlight group found.
-function! SynStack()
-  for i1 in synstack(line("."), col("."))
-    let i2 = synIDtrans(i1)
-    let n1 = synIDattr(i1, "name")
-    let n2 = synIDattr(i2, "name")
-    echo n1 "->" n2
-  endfor
-endfunction
-
-" You can also create a convenience mapping
-map <F2> <cmd>call SynStack()<cr>
-```
-
-</details>
 
 ## Acknowledgements
 

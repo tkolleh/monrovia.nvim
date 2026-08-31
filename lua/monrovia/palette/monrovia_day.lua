@@ -22,7 +22,7 @@ local palette = {
   comment = "#524b44",
 
   bg0     = "#e4dcd4", -- Dark bg (status line and float)
-  bg1     = "#f6f2ee", -- Default bg
+  bg1     = "#f9f6f2", -- Default bg
   bg2     = "#e0d5c8", -- Lighter bg (colorcolm folds)
   bg3     = "#ebe3da", -- Subtle warm cursor line (near bg1)
   bg4     = "#aab0ad", -- Conceal, border fg
@@ -30,7 +30,7 @@ local palette = {
   fg0     = "#302b5d", -- Lighter fg
   fg1     = "#3d2b5a", -- Default fg
   fg2     = "#643f61", -- Darker fg (status line)
-  fg3     = "#824d5b", -- Darker fg (line numbers, fold colums)
+  fg3     = "#42272f", -- Darker fg (line numbers, fold colums)
 
   sel0    = "#e7d2be", -- Popup bg, visual selection bg
   sel1    = "#a4c1c2", -- Popup sel bg, search bg

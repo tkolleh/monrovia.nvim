@@ -22,15 +22,15 @@ local palette = {
   comment = "#5d4f64",
 
   bg0     = "#ebe5df", -- Dark bg (status line and float)
-  bg1     = "#faf4ed", -- Default bg
+  bg1     = "#fcf8f3", -- Default bg
   bg2     = "#e6ded6", -- Warm paper folds (dawn ramp ~30°)
   bg3     = "#f2ebe3", -- Subtle warm cursor line (near bg1)
   bg4     = "#bdbfc9", -- Conceal, border fg
 
   fg0     = "#4c4769", -- Lighter fg
-  fg1     = "#575279", -- Default fg
-  fg2     = "#625c87", -- Darker fg (status line)
-  fg3     = "#6a6378", -- Darker fg (line numbers, fold colums)
+  fg1     = "#2b293c", -- Default fg
+  fg2     = "#4c4869", -- Darker fg (status line)
+  fg3     = "#2c2932", -- Darker fg (line numbers, fold colums)
 
   sel0    = "#d0d8d8", -- Popup bg, visual selection bg
   sel1    = "#b8cece", -- Popup sel bg, search bg

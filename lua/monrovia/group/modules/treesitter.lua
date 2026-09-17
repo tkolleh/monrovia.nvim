@@ -95,7 +95,7 @@ function M.get(spec, config, opts)
     ["@markup.strong"] = { fg = P.red:subtle(), style = "bold" }, -- bold text
     ["@markup.italic"] = { link = "Italic" }, -- italic text
     ["@markup.strikethrough"] = { fg = spec.fg1, style = "strikethrough" }, -- struck-through text
-    ["@markup.underline"] = { link = "Underline" }, -- underlined text (only for literal underline markup!)
+    ["@markup.underline"] = { link = "Underlined" }, -- underlined text (only for literal underline markup!)
 
     ["@markup.heading"] = { link = "Title" }, -- headings, titles (including markers)
 

@@ -53,7 +53,7 @@ function M.filter(tbl, func)
       table.insert(result, item)
     end
   end
-  return M(result)
+  return result
 end
 
 ---Apply function to each element of table

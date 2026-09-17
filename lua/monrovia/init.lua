@@ -3,7 +3,7 @@ local config = require("monrovia.config")
 local function read_file(filepath)
   local file = io.open(filepath, "r")
   if file then
-    local content = file:read()
+    local content = file:read("*a")
     file:close()
     return content
   end
@@ -17,7 +17,28 @@ local function write_file(filepath, content)
   end
 end
 
+---Directory containing this plugin, derived from this file's own location
+---(<root>/lua/monrovia/init.lua) rather than a hard-coded character offset.
+---@return string
+local function plugin_root()
+  local source = debug.getinfo(1, "S").source:sub(2)
+  return vim.fs.dirname(vim.fs.dirname(vim.fs.dirname(source)))
+end
+
 local M = {}
+
+---Load a compiled blob, treating an empty file as absent. `loadfile` on a
+---zero-byte file returns a chunk that succeeds and sets no highlights, which
+---would otherwise present a failed compile as a silently colourless session.
+---@param path string
+---@return function|nil
+local function load_compiled(path)
+  local stat = vim.uv.fs_stat(path)
+  if not stat or stat.size == 0 then
+    return nil
+  end
+  return loadfile(path)
+end
 
 function M.compile()
   require("monrovia.lib.log").clear()
@@ -73,17 +94,24 @@ function M.load(opts)
   local _, compiled_file = config.get_compiled_info(opts)
   lock = true
 
-  local f = loadfile(compiled_file)
+  local f = load_compiled(compiled_file)
   if not f then
     M.compile()
-    f = loadfile(compiled_file)
+    f = load_compiled(compiled_file)
   end
 
-  ---@diagnostic disable-next-line: need-check-nil
-  f()
-
-  -- Register runtime hooks after the compiled blob has set its highlight groups.
-  register_runtime()
+  if f then
+    f()
+    -- Register runtime hooks after the compiled blob has set its highlight groups.
+    register_runtime()
+  else
+    require("monrovia.lib.log").error(
+      string.format(
+        "Could not load the compiled colorscheme at '%s'. Run :MonroviaCompile and check :messages for the compile error.",
+        compiled_file
+      )
+    )
+  end
 
   lock = false
 end
@@ -116,7 +144,7 @@ function M.setup(opts)
   local cached_path = util.join_paths(config.options.compile_path, "cache")
   local cached = read_file(cached_path)
 
-  local git_path = util.join_paths(debug.getinfo(1).source:sub(2, -23), ".git")
+  local git_path = util.join_paths(plugin_root(), ".git")
   local git = vim.fn.getftime(git_path)
   local hash = require("monrovia.lib.hash")(opts) .. (git == -1 and git_path or git)
 

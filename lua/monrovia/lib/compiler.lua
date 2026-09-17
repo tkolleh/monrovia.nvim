@@ -67,49 +67,69 @@ vim.o.background = "%s"
   local output_path, output_file = config.get_compiled_info(opts)
   util.ensure_dir(output_path)
 
-  local file, err
+  local source = table.concat(lines, "\n")
+  local log = require("monrovia.lib.log")
+
   if vim.g.monrovia_debug then
-    file = io.open(output_file .. ".lua", "wb")
-    file:write(table.concat(lines, "\n"))
-    file:close()
+    local debug_file = io.open(output_file .. ".lua", "wb")
+    if debug_file then
+      debug_file:write(source)
+      debug_file:close()
+    end
   end
 
-  file, err = io.open(output_file, "wb")
+  -- Compile before touching the cache. Opening the output first would truncate a
+  -- previously good blob, turning a config error into a silently colourless session.
+  local f, load_err = load(source, "=")
+  if not f then
+    local tmpfile = util.join_paths(util.get_tmp_dir(), "monrovia_error.lua")
+    local efile = io.open(tmpfile, "wb")
+    if efile then
+      efile:write(source)
+      efile:close()
+    end
+
+    log.error(fmt(
+      [[There is an error in your monrovia config.
+You can open '%s' for debugging.
+
+If you think this is a bug, kindly open an issue and attach the '%s' file.
+Below is the error message:
+
+%s]],
+      tmpfile,
+      tmpfile,
+      load_err
+    ))
+    return
+  end
+
+  -- Write to a sibling temp path and rename into place. Rename is atomic, so a
+  -- concurrent reader never observes a half-written blob, and a failed write
+  -- leaves the existing cache untouched.
+  local temp_file = output_file .. ".tmp"
+  local file, err = io.open(temp_file, "wb")
   if not file then
-    require("monrovia.lib.log").error(fmt(
+    log.error(fmt(
       [[Couldn't open %s: %s.
 
 Check that %s is accessible for the current user.
 You could try deleting %s to reset permissions]],
-      output_file,
+      temp_file,
       err,
-      output_file,
+      temp_file,
       output_path
     ))
     return
   end
 
-  local f = load(table.concat(lines, "\n"), "=")
-  if not f then
-    local tmpfile = util.join_paths(util.get_tmp_dir(), "monrovia_error.lua")
-    require("monrovia.lib.log").error(fmt(
-      [[There is an error in your nigtfox config.
-You can open '%s' for debugging.
-
-If you think this is a bug, kindly open an issue and attach '%s' file.
-Bellow is the error message:
-]],
-      tmpfile,
-      tmpfile
-    ))
-    local efile = io.open(tmpfile, "wb")
-    efile:write(table.concat(lines, "\n"))
-    efile:close()
-    dofile(tmpfile)
-  end
-
   file:write(f())
   file:close()
+
+  local renamed, rename_err = vim.uv.fs_rename(temp_file, output_file)
+  if not renamed then
+    log.error(fmt("Couldn't move %s into place at %s: %s", temp_file, output_file, rename_err))
+  end
 end
 
 return M

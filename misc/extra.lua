@@ -45,7 +45,7 @@ for extra_name, extra in pairs(extras) do
   if is_table and extra.is_full then
     local folder = join("extra", extra_name)
     local filename = extra.basename and fmt("%s.%s", extra.basename, extra.ext) or fmt("%s.%s", extra_name, extra.ext)
-    local url = fmt("https://github.com/edeneast/nightfox.nvim/raw/main/%s/%s", folder, filename)
+    local url = fmt("https://github.com/tkolleh/monrovia.nvim/raw/main/%s/%s", folder, filename)
     write(mod.generate(specs, { url = url }), folder, filename)
   else
     for spec_name, spec in pairs(specs) do
@@ -54,7 +54,7 @@ for extra_name, extra in pairs(extras) do
       local filename = (is_table and extra.use_spec_name) and fmt("%s.%s", spec_name, ext)
         or fmt("%s.%s", extra_name, ext)
 
-      spec.palette.meta.url = fmt("https://github.com/edeneast/nightfox.nvim/raw/main/%s/%s", folder, filename)
+      spec.palette.meta.url = fmt("https://github.com/tkolleh/monrovia.nvim/raw/main/%s/%s", folder, filename)
       write(mod.generate(spec, {}), folder, filename)
     end
   end

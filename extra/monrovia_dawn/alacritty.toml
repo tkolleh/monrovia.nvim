@@ -1,0 +1,79 @@
+# Monrovia Alacritty Colors
+## name: monrovia_dawn
+## upstream: https://github.com/tkolleh/monrovia.nvim/raw/main/extra/monrovia_dawn/alacritty.toml
+
+[colors.primary]
+background = "#fcf8f3"
+foreground = "#2b293c"
+dim_foreground = "#4c4769"
+bright_foreground = "#4c4869"
+
+[colors.cursor]
+text = "#2b293c"
+cursor = "#4c4869"
+
+[colors.vi_mode_cursor]
+text = "#2b293c"
+cursor = "#44757e"
+
+[colors.search.matches]
+foreground = "#2b293c"
+background = "#b8cece"
+
+[colors.search.focused_match]
+foreground = "#2b293c"
+background = "#435d51"
+
+[colors.footer_bar]
+foreground = "#2b293c"
+background = "#f2ebe3"
+
+[colors.hints.start]
+foreground = "#2b293c"
+background = "#98591b"
+
+[colors.hints.end]
+foreground = "#2b293c"
+background = "#f2ebe3"
+
+[colors.selection]
+text = "#2b293c"
+background = "#d0d8d8"
+
+[colors.normal]
+black = "#575279"
+red = "#a85169"
+green = "#547565"
+yellow = "#9e6310"
+blue = "#286983"
+magenta = "#7b6298"
+cyan = "#44757e"
+white = "#e5e9f0"
+
+[colors.bright]
+black = "#5f5695"
+red = "#b4647a"
+green = "#618774"
+yellow = "#ba7413"
+blue = "#2d81a3"
+magenta = "#8b73a5"
+cyan = "#4f8892"
+white = "#e6ebf3"
+
+[colors.dim]
+black = "#504c6b"
+red = "#8c4458"
+green = "#435d51"
+yellow = "#794c0c"
+blue = "#295e73"
+magenta = "#67527f"
+cyan = "#365d63"
+white = "#c8cfde"
+
+[[colors.indexed_colors]]
+index = 16
+color = "#98591b"
+
+[[colors.indexed_colors]]
+index = 17
+color = "#b73e7c"

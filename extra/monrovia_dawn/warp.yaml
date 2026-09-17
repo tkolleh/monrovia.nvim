@@ -1,0 +1,26 @@
+# Monrovia Warp Colors
+# Style: monrovia_dawn
+# Upstream: https://github.com/tkolleh/monrovia.nvim/raw/main/extra/monrovia_dawn/warp.yaml
+accent:     '#2b293c'
+background: '#fcf8f3'
+foreground: '#2b293c'
+details:    'lighter'
+terminal_colors:
+  normal:
+    black:   '#575279'
+    red:     '#a85169'
+    green:   '#547565'
+    yellow:  '#9e6310'
+    blue:    '#286983'
+    magenta: '#7b6298'
+    cyan:    '#44757e'
+    white:   '#e5e9f0'
+  bright:
+    black:   '#5f5695'
+    red:     '#b4647a'
+    green:   '#618774'
+    yellow:  '#ba7413'
+    blue:    '#2d81a3'
+    magenta: '#8b73a5'
+    cyan:    '#4f8892'
+    white:   '#e6ebf3'

@@ -1,0 +1,21 @@
+! Monrovia colors for Xresources
+! Style: monrovia_dawn
+! Upstream: https://github.com/tkolleh/monrovia.nvim/raw/main/extra/monrovia_dawn/monrovia_dawn.Xresources
+*background: #fcf8f3
+*foreground: #2b293c
+*color0:  #575279
+*color1:  #a85169
+*color2:  #547565
+*color3:  #9e6310
+*color4:  #286983
+*color5:  #7b6298
+*color6:  #44757e
+*color7:  #e5e9f0
+*color8:  #5f5695
+*color9:  #b4647a
+*color10: #618774
+*color11: #ba7413
+*color12: #2d81a3
+*color13: #8b73a5
+*color14: #4f8892
+*color15: #e6ebf3

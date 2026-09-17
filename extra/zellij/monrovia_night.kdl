@@ -1,0 +1,96 @@
+// Monrovia Theme:
+// Upstream: https://github.com/tkolleh/monrovia.nvim/raw/main/extra/zellij/monrovia_night.kdl
+
+themes {
+  monrovia_dawn {
+    bg "#d0d8d8"
+    fg "#2b293c"
+    red "#a85169"
+    green "#547565"
+    blue "#286983"
+    yellow "#9e6310"
+    magenta "#7b6298"
+    orange "#98591b"
+    cyan "#44757e"
+    black "#f2ebe3"
+    white "#4c4869"
+  }
+  monrovia_day {
+    bg "#e7d2be"
+    fg "#3d2b5a"
+    red "#a5222f"
+    green "#396847"
+    blue "#2848a9"
+    yellow "#ac5402"
+    magenta "#6e33ce"
+    orange "#8b4d1d"
+    cyan "#287980"
+    black "#ebe3da"
+    white "#643f61"
+  }
+  monrovia_dusk {
+    bg "#433c59"
+    fg "#e0def4"
+    red "#eb6f92"
+    green "#a3be8c"
+    blue "#569fba"
+    yellow "#f6c177"
+    magenta "#c4a7e7"
+    orange "#ea9a97"
+    cyan "#9ccfd8"
+    black "#302d49"
+    white "#cdcbe0"
+  }
+  monrovia_midnight {
+    bg "#2a2a2a"
+    fg "#f2f4f8"
+    red "#ee5396"
+    green "#25be6a"
+    blue "#78a9ff"
+    yellow "#08bdba"
+    magenta "#be95ff"
+    orange "#3ddbd9"
+    cyan "#33b1ff"
+    black "#2a2a2a"
+    white "#b6b8bb"
+  }
+  monrovia_night {
+    bg "#2b3b51"
+    fg "#cdcecf"
+    red "#c94f6d"
+    green "#81b29a"
+    blue "#719cd6"
+    yellow "#dbc074"
+    magenta "#9d79d6"
+    orange "#f4a261"
+    cyan "#63cdcf"
+    black "#243245"
+    white "#aeafb0"
+  }
+  monrovia_sunset {
+    bg "#293e40"
+    fg "#e6eaea"
+    red "#e85c51"
+    green "#7aa4a1"
+    blue "#5a93aa"
+    yellow "#fda47f"
+    magenta "#ad5c7c"
+    orange "#ff8349"
+    cyan "#a1cdd8"
+    black "#1f373c"
+    white "#cbd9d8"
+  }
+  monrovia_twilight {
+    bg "#3e4a5b"
+    fg "#cdcecf"
+    red "#bf616a"
+    green "#a3be8c"
+    blue "#81a1c1"
+    yellow "#ebcb8b"
+    magenta "#b48ead"
+    orange "#d8a594"
+    cyan "#88c0d0"
+    black "#3c4353"
+    white "#abb1bb"
+  }
+}

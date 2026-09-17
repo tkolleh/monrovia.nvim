@@ -1,0 +1,23 @@
+{
+    "name" : "monrovia_dawn",
+    "background" : "#fcf8f3",
+    "foreground" : "#2b293c",
+    "cursorColor": "#2b293c",
+    "selectionBackground": "#d0d8d8",
+    "black" : "#575279",
+    "blue" : "#286983",
+    "cyan" : "#44757e",
+    "green" : "#547565",
+    "purple" : "#7b6298",
+    "red" : "#a85169",
+    "white" : "#e5e9f0",
+    "yellow" : "#9e6310",
+    "brightBlack" : "#5f5695",
+    "brightBlue" : "#2d81a3",
+    "brightCyan" : "#4f8892",
+    "brightGreen" : "#618774",
+    "brightPurple" : "#8b73a5",
+    "brightRed" : "#b4647a",
+    "brightWhite" : "#e6ebf3",
+    "brightYellow" : "#ba7413"
+}

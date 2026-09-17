@@ -14,6 +14,8 @@ function M.get(spec, config)
     Cursor          = { fg = spec.bg1, bg = spec.fg1 }, -- character under the cursor
     lCursor         = { link = "Cursor" }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM        = { link = "Cursor" }, -- like Cursor, but used when in IME mode |CursorIM|
+    MCursor         = { link = "Cursor" }, -- cursors other than the primary one, with multiple cursors
+    MCursorVisual   = { link = "Visual" }, -- selection of cursors other than the primary one
     CursorColumn    = { link = "CursorLine" }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine      = { bg = spec.bg3 }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory       = { fg = spec.syntax.func }, -- directory names (and other special names in listings)

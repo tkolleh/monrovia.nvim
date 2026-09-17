@@ -3,8 +3,8 @@ on:
   pull_request: ~
   push:
     paths:
-      - "lua/*"
-      - "test/*"
+      - "lua/**"
+      - "test/**"
     branches:
       - main
 
@@ -12,13 +12,25 @@ jobs:
   build:
     name: Run tests
     runs-on: ubuntu-latest
+    # Nightly tracks a moving target: it may document highlight groups that do
+    # not exist in the supported release yet, which group_spec correctly reports
+    # as uncovered. Surface that as a signal without blocking merges.
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - tag: stable
+            experimental: false
+          - tag: nightly
+            experimental: true
     steps:
       - uses: actions/checkout@v4
 
       - name: Install Neovim
         uses: MunifTanjim/setup-neovim-action@v1
         with:
-          tag: nightly
+          tag: ${{ matrix.tag }}
 
       - name: Install plenary
         run: |

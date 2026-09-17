@@ -11,6 +11,7 @@ function M.get(spec, config, opts)
     LspReferenceText  = { bg = spec.sel0 }, -- used for highlighting "text" references
     LspReferenceRead  = { bg = spec.sel0 }, -- used for highlighting "read" references
     LspReferenceWrite = { bg = spec.sel0 }, -- used for highlighting "write" references
+    LspReferenceTarget = { link = "LspReferenceText" }, -- used for highlighting the target of a document highlight
 
     LspCodeLens                 = { fg = spec.syntax.comment }, -- Used to color the virtual text of the codelens
     LspCodeLensSeparator        = { fg = spec.fg3 }, -- Used to color the separator between two or more code lens

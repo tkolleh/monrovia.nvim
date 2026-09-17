@@ -29,6 +29,24 @@ function M.get(spec, config, opts)
     DiagnosticUnderlineInfo    = { style = "undercurl", sp = d.info },
     DiagnosticUnderlineHint    = { style = "undercurl", sp = d.hint },
     DiagnosticUnderlineOk      = { style = "undercurl", sp = d.ok },
+
+    -- Multi-line diagnostic blocks. These link to Diagnostic* by default, which
+    -- drops the severity tint the virtual-text groups above carry.
+    DiagnosticVirtualLinesError = { fg = spec.fg1, bg = dbg.error },
+    DiagnosticVirtualLinesWarn  = { fg = spec.fg1, bg = dbg.warn },
+    DiagnosticVirtualLinesInfo  = { fg = spec.fg1, bg = dbg.info },
+    DiagnosticVirtualLinesHint  = { fg = spec.fg1, bg = dbg.hint },
+    DiagnosticVirtualLinesOk    = { fg = spec.fg1, bg = dbg.ok },
+
+    DiagnosticFloatingError    = { fg = d.error },
+    DiagnosticFloatingWarn     = { fg = d.warn },
+    DiagnosticFloatingInfo     = { fg = d.info },
+    DiagnosticFloatingHint     = { fg = d.hint },
+    DiagnosticFloatingOk       = { fg = d.ok },
+
+    -- Neovim hard-codes sp = #FFC0B9 here, which clashes with every palette.
+    DiagnosticDeprecated       = { style = "strikethrough", sp = d.error },
+    DiagnosticUnnecessary      = { link = "Comment" },
   }
 end
 

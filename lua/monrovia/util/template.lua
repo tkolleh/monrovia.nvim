@@ -20,21 +20,27 @@ local function get_path(t, path)
   return t
 end
 
----Parse string for configuration template
----@param str string
+---Resolve one override value against the spec. Strings are treated as dotted
+---template paths ("syntax.func"); anything else is passed through untouched.
+---@param value any
 ---@param spec Spec
 ---@return any
-local function parse_string(str, spec)
-  if str == "" then
-    return str
+local function parse_string(value, spec)
+  -- Overrides carry numbers (blend) and booleans alongside colour strings.
+  -- Indexing those throws, so non-strings must short-circuit here.
+  if type(value) ~= "string" then
+    return value
   end
 
-  if str[1] == "#" then
-    return str
+  -- `value[1]` resolves through the string metatable and is always nil, so this
+  -- shortcut never fired; literal hex survived only because get_path failed to
+  -- resolve it and the final fallback returned the input unchanged.
+  if value == "" or value:sub(1, 1) == "#" then
+    return value
   end
 
-  local path = get_path(spec, str)
-  return path and path.base and path.base or path or str
+  local path = get_path(spec, value)
+  return path and path.base or path or value
 end
 
 function M.parse(template, spec)

@@ -12,6 +12,7 @@ local M = {}
 ---@field bg string
 ---@field style string
 ---@field sp string
+---@field blend integer
 ---@field link string
 ---@field force boolean
 
@@ -79,6 +80,7 @@ local function nvim_hl(highlights)
       values.bg = opts.bg
       values.fg = opts.fg
       values.sp = opts.sp
+      values.blend = opts.blend
       vim.api.nvim_set_hl(0, group, values)
     end
   end

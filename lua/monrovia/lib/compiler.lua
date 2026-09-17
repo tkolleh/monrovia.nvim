@@ -33,7 +33,6 @@ function M.compile(opts)
 return string.dump(function()
 local h = vim.api.nvim_set_hl
 if vim.g.colors_name then vim.cmd("hi clear") end
-vim.o.termguicolors = true
 vim.g.colors_name = "%s"
 vim.o.background = "%s"
     ]],
@@ -57,6 +56,7 @@ vim.o.background = "%s"
       op.bg = values.bg
       op.fg = values.fg
       op.sp = values.sp
+      op.blend = values.blend
       table.insert(lines, fmt([[h(0, "%s", %s)]], name, inspect(op)))
     end
   end

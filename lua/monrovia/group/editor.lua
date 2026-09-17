@@ -75,6 +75,51 @@ function M.get(spec, config)
     WinBar          = { fg = spec.fg3, bg = trans and "NONE" or spec.bg1, style = "bold" }, -- Window bar of current window.
     WinBarNC        = { fg = spec.fg3, bg = trans and "NONE" or inactive and spec.bg0 or spec.bg1, style = "bold" }, --Window bar of not-current windows.
 
+    -- VCS text. Neovim's defaults are hard-coded pastels (#B3F6C0, #8CF8F7,
+    -- #FFC0B9) that clash with every palette; gitcommit and diff buffers use them.
+    Added           = { fg = spec.git.add }, -- added text
+    Changed         = { fg = spec.git.changed }, -- changed text
+    Removed         = { fg = spec.git.removed }, -- removed text
+    DiffTextAdd     = { bg = spec.diff.add }, -- diff mode: added text within a changed line
+
+    -- Message output. OkMsg, StdoutMsg and StderrMsg split ":!cmd" output by stream.
+    OkMsg           = { fg = spec.diag.ok }, -- success messages
+    StdoutMsg       = { fg = spec.fg2 }, -- stdout of a shell command
+    StderrMsg       = { link = "ErrorMsg" }, -- stderr of a shell command
+
+    LineNrAbove     = { link = "LineNr" }, -- line numbers above the cursor with 'relativenumber'
+    LineNrBelow     = { link = "LineNr" }, -- line numbers below the cursor with 'relativenumber'
+    CursorLineFold  = { link = "FoldColumn" }, -- 'foldcolumn' on the cursor line
+    CursorLineSign  = { link = "SignColumn" }, -- sign column on the cursor line
+
+    FloatTitle      = { link = "Title" }, -- title of a floating window
+    FloatFooter     = { link = "FloatTitle" }, -- footer of a floating window
+    FloatShadow     = { bg = spec.bg0, blend = 80 }, -- shadow cast by a floating window
+    FloatShadowThrough = { bg = spec.bg0, blend = 100 }, -- float shadow where the text below shows through
+
+    -- Popup menu: 'pumborder' plus the completion kind/extra columns.
+    PmenuBorder     = { fg = spec.fg3, bg = spec.sel0 }, -- border of the popup menu
+    PmenuShadow     = { link = "FloatShadow" }, -- shadow cast by the popup menu
+    PmenuShadowThrough = { link = "FloatShadowThrough" }, -- popup shadow where the text below shows through
+    PmenuMatch      = { fg = spec.syntax.func, bg = spec.sel0, style = "bold" }, -- matched text of a normal item
+    PmenuMatchSel   = { fg = spec.syntax.func, bg = spec.sel1, style = "bold" }, -- matched text of the selected item
+    PmenuKind       = { fg = spec.syntax.type, bg = spec.sel0 }, -- "kind" column of a normal item
+    PmenuKindSel    = { fg = spec.syntax.type, bg = spec.sel1 }, -- "kind" column of the selected item
+    PmenuExtra      = { fg = spec.fg3, bg = spec.sel0 }, -- "extra" column of a normal item
+    PmenuExtraSel   = { fg = spec.fg3, bg = spec.sel1 }, -- "extra" column of the selected item
+
+    ComplHint       = { link = "NonText" }, -- inline completion hint
+    ComplHintMore   = { link = "Comment" }, -- inline completion hint when more matches exist
+    ComplMatchIns   = { fg = spec.syntax.func }, -- matched text of the inserted completion
+    PreInsert       = { fg = spec.syntax.comment }, -- text about to be inserted by a preview
+    SnippetTabstop  = { bg = spec.sel0 }, -- snippet tabstops
+    SnippetTabstopActive = { bg = spec.sel1 }, -- the currently active snippet tabstop
+
+    StatusLineTerm  = { link = "StatusLine" }, -- status line of a current :terminal window
+    StatusLineTermNC = { link = "StatusLineNC" }, -- status line of a non-current :terminal window
+
+    Ignore          = { fg = spec.bg4 }, -- left blank, hidden |hl-Ignore|
+
     -- qfLineNr        = {},
     -- qfFileName      = {},
 

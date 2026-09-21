@@ -18,11 +18,11 @@ function M.get(spec, config, opts)
     DiagnosticSignHint         = { fg = d.hint },
     DiagnosticSignOk           = { fg = d.ok },
 
-    DiagnosticVirtualTextError = { fg = spec.fg1, bg = dbg.error },
-    DiagnosticVirtualTextWarn  = { fg = spec.fg1, bg = dbg.warn },
-    DiagnosticVirtualTextInfo  = { fg = spec.fg1, bg = dbg.info },
-    DiagnosticVirtualTextHint  = { fg = spec.fg1, bg = dbg.hint },
-    DiagnosticVirtualTextOk    = { fg = spec.fg1, bg = dbg.ok },
+    DiagnosticVirtualTextError = { fg = d.text, bg = dbg.error, style = "italic" },
+    DiagnosticVirtualTextWarn  = { fg = d.text, bg = dbg.warn,  style = "italic" },
+    DiagnosticVirtualTextInfo  = { fg = d.text, bg = dbg.info,  style = "italic" },
+    DiagnosticVirtualTextHint  = { fg = d.text, bg = dbg.hint,  style = "italic" },
+    DiagnosticVirtualTextOk    = { fg = d.text, bg = dbg.ok,    style = "italic" },
 
     DiagnosticUnderlineError   = { style = "undercurl", sp = d.error },
     DiagnosticUnderlineWarn    = { style = "undercurl", sp = d.warn },
@@ -32,11 +32,11 @@ function M.get(spec, config, opts)
 
     -- Multi-line diagnostic blocks. These link to Diagnostic* by default, which
     -- drops the severity tint the virtual-text groups above carry.
-    DiagnosticVirtualLinesError = { fg = spec.fg1, bg = dbg.error },
-    DiagnosticVirtualLinesWarn  = { fg = spec.fg1, bg = dbg.warn },
-    DiagnosticVirtualLinesInfo  = { fg = spec.fg1, bg = dbg.info },
-    DiagnosticVirtualLinesHint  = { fg = spec.fg1, bg = dbg.hint },
-    DiagnosticVirtualLinesOk    = { fg = spec.fg1, bg = dbg.ok },
+    DiagnosticVirtualLinesError = { fg = d.text, bg = dbg.error, style = "italic" },
+    DiagnosticVirtualLinesWarn  = { fg = d.text, bg = dbg.warn,  style = "italic" },
+    DiagnosticVirtualLinesInfo  = { fg = d.text, bg = dbg.info,  style = "italic" },
+    DiagnosticVirtualLinesHint  = { fg = d.text, bg = dbg.hint,  style = "italic" },
+    DiagnosticVirtualLinesOk    = { fg = d.text, bg = dbg.ok,    style = "italic" },
 
     DiagnosticFloatingError    = { fg = d.error },
     DiagnosticFloatingWarn     = { fg = d.warn },

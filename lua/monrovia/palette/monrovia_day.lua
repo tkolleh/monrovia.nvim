@@ -96,12 +96,10 @@ local function generate_spec(pal)
   }
 
   -- Dimmed gutter text (e.g. statuscolumn wrap indicator) on non-cursor lines.
-  -- 0.38 favors visible dimming over strict accessibility: day/dawn/dusk land
-  -- below the 3:1 floor for dimmed text (user-accepted trade-off) so the
-  -- gutter reads as clearly receded; night/midnight/sunset/twilight still
-  -- clear 3:1. Drop to ~0.25 to keep all seven above 3:1 if that matters more.
+  -- Matches the Comment color so the gutter reads as muted/secondary text,
+  -- same as source comments, rather than a computed blend.
   spec.dim = {
-    statuscolumn = C(spec.fg3):blend(C(spec.bg1), 0.38):to_css(),
+    statuscolumn = spec.syntax.comment,
   }
 
   -- Decoupled from spec.diag so search-highlight brightness can be tuned

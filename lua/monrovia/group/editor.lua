@@ -30,8 +30,8 @@ function M.get(spec, config)
     WinSeparator    = { fg = spec.bg0 }, -- the column separating vertically split windows
     VertSplit       = { link = "WinSeparator" }, -- the column separating vertically split windows
     Folded          = { fg = spec.fg3, bg = spec.bg2 }, -- line used for closed folds
-    FoldColumn      = { fg = spec.fg3 }, -- 'foldcolumn'
-    SignColumn      = { fg = spec.fg3 }, -- column where |signs| are displayed
+    FoldColumn      = { fg = spec.dim.statuscolumn }, -- 'foldcolumn'. Dimmed to match LineNr; CursorLineFold restores full brightness on the cursor line.
+    SignColumn      = { fg = spec.dim.statuscolumn }, -- column where |signs| are displayed. Dimmed to match LineNr; CursorLineSign restores full brightness on the cursor line.
     SignColumnSB    = { link = "SignColumn" }, -- column where |signs| are displayed
     Substitute      = { fg = spec.bg1, bg = spec.diag.error }, -- |:substitute| replacement text highlighting
     LineNr          = { fg = spec.dim.statuscolumn }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set. Dimmed so the cursor line (CursorLineNr) stands out.
@@ -91,8 +91,8 @@ function M.get(spec, config)
 
     LineNrAbove     = { link = "LineNr" }, -- line numbers above the cursor with 'relativenumber'
     LineNrBelow     = { link = "LineNr" }, -- line numbers below the cursor with 'relativenumber'
-    CursorLineFold  = { link = "FoldColumn" }, -- 'foldcolumn' on the cursor line
-    CursorLineSign  = { link = "SignColumn" }, -- sign column on the cursor line
+    CursorLineFold  = { fg = spec.fg3 }, -- 'foldcolumn' on the cursor line. Full brightness (not linked to the now-dimmed FoldColumn) so it stands out like CursorLineNr.
+    CursorLineSign  = { fg = spec.fg3 }, -- sign column on the cursor line. Full brightness (not linked to the now-dimmed SignColumn) so it stands out like CursorLineNr.
 
     FloatTitle      = { link = "Title" }, -- title of a floating window
     FloatFooter     = { link = "FloatTitle" }, -- footer of a floating window

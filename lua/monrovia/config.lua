@@ -39,6 +39,7 @@ local defaults = {
   },
   modules = {
     bufferline = true,
+    cokeline = true,
     coc = {
       background = true,
     },
@@ -68,6 +69,7 @@ M.module_names = {
   "blink",
   "cmp",
   "coc",
+  "cokeline",
   "dap_ui",
   "dashboard",
   "diagnostic",

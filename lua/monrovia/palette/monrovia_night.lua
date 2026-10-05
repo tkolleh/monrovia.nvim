@@ -26,6 +26,7 @@ local palette = {
   bg2     = "#212e3f", -- Lighter bg (colorcolm folds)
   bg3     = "#243245", -- Subtle cool cursor line (near bg1)
   bg4     = "#39506d", -- Conceal, border fg
+  bg_float = "#1c2634", -- Popup body, lighter than bg0 for distinction; fg1 9.65:1 AAA / fg3 5.38:1 AA
 
   fg0     = "#d6d6d7", -- Lighter fg
   fg1     = "#cdcecf", -- Default fg
@@ -44,6 +45,7 @@ local function generate_spec(pal)
     bg2  = pal.bg2,  -- Lighter bg (colorcolm folds)
     bg3  = pal.bg3,  -- Lighter bg (cursor line)
     bg4  = pal.bg4,  -- Conceal, border fg
+    bg_float = pal.bg_float, -- Popup body background
 
     fg0  = pal.fg0,  -- Lighter fg
     fg1  = pal.fg1,  -- Default fg
